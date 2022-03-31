@@ -3,11 +3,34 @@
 Copyright (c) 2019 - present AppSeed.us
 """
 
+from multiprocessing import context
 from django import template
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
+
+
+def home(request):
+    context = {}
+    html_template = loader.get_template('frontend/home.html')
+    return HttpResponse(html_template.render(context, request))
+
+def pdf_book_list(request):
+    context = {}
+    html_template = loader.get_template('frontend/pdf_book_list.html')
+    return HttpResponse(html_template.render(context,request))
+
+def hadees_mainchapter(request):
+    context = {}
+    html_template = loader.get_template('frontend/hadees_mainchapter.html')
+    return HttpResponse(html_template.render(context,request))
+
+def hadees_subchapter(request):
+    context = {}
+    html_template = loader.get_template('frontend/hadees_subchapter.html')
+    return HttpResponse(html_template.render(context,request))
+
 
 
 @login_required(login_url="/login/")
