@@ -3,6 +3,7 @@
 Copyright (c) 2019 - present AppSeed.us
 """
 
+from pyexpat import model
 from statistics import mode
 from turtle import title
 from django.db import models
@@ -24,11 +25,13 @@ class Book(models.Model):
         return self.title
 
 class BookPDF(models.Model):
-    book = models.ForeignKey(Book, on_delete=models.SET_NULL, null=True, blank=True, related_name='book')
+    # book = models.ForeignKey(Book, on_delete=models.SET_NULL, null=True, blank=True, related_name='book')
+    book = models.ForeignKey(Book,on_delete=models.SET_NULL,null=True, blank=True,)
     title = models.TextField(blank=False,null=False)
     total_pages = models.TextField(blank=True,null=True)
     file_url = models.FileField(upload_to=BookPDF_upload_location, null = False, blank = False)
-
+    external_file_url = models.TextField(blank=True,null=True)
+    
     def __str__(self):
         return self.title
 

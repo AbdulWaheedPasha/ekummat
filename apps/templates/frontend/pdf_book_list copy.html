@@ -1,0 +1,154 @@
+{% extends 'frontend/base.html' %}
+
+{% block title %} Dashboard {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+<section class="my-5 pt-5">
+   <div class="container mt-sm-5 mt-3">
+      <div class="row">
+         <div class="col">
+            <div class="mb-0">
+               <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                     <li class="breadcrumb-item"><a href="#">Home</a></li>
+                     <li class="breadcrumb-item active" aria-current="page">PDF Books</li>
+                  </ol>
+               </nav>
+            </div>
+         </div>
+      </div>
+   </div>
+   </div>
+</section>
+<section class="pt-sm-8 pb-5 position-relative bg-gradient-dark">
+   <div class="position-absolute w-100 z-inde-1 top-0 mt-n3">
+      <svg width="100%" viewBox="0 -2 1920 157" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+         <title>wave-down</title>
+         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g fill="#FFFFFF" fill-rule="nonzero">
+               <g id="wave-down">
+                  <path d="M0,60.8320331 C299.333333,115.127115 618.333333,111.165365 959,47.8320321 C1299.66667,-15.5013009 1620.66667,-15.2062179 1920,47.8320331 L1920,156.389409 L0,156.389409 L0,60.8320331 Z" id="Path-Copy-2" transform="translate(960.000000, 78.416017) rotate(180.000000) translate(-960.000000, -78.416017) "></path>
+               </g>
+            </g>
+         </g>
+      </svg>
+   </div>
+   <div class="container">
+      <div class="row">
+         <div class="col-md-8 text-start mb-5 mt-5">
+         <h3 class="text-white z-index-1 position-relative">All Download PDF</h3>
+          <p class="text-white opacity-8 mb-0">Huge collection of  most popular Ahadis Books in PDF download</p>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-lg-12 col-12">
+            <div class="card card-profile overflow-hidden">
+               <div class="row">
+               <div class="col-lg-12 col-md-12 col-12  my-auto">
+                  <div class="card-body">
+                     <h4 class="mb-0">Sahih Al Bukhari</h4>
+                     <h6 class="text-info">Total 8 Volumes</h6>
+                     <!-- <p class="mb-0">Artist is a term applied to a person who engages in an activity deemed to be an art.</p> -->
+                     
+                     <ul class="list-inline text-lg ">
+                     {% for book in books %}
+                     
+                     
+                     <li class="list-inline-item"> <i class="fa fa-file-pdf-o text-primary text-gradient" aria-hidden="true"></i> <a href=""> Sahih Al Bukhari Vol 1 </a></li> | 
+                     <li class="list-inline-item"> <i class="fa fa-file-pdf-o text-primary text-gradient" aria-hidden="true"></i> <a href=""> Sahih Al Bukhari Vol 2 </a></li> | 
+                     <li class="list-inline-item"> <i class="fa fa-file-pdf-o text-primary text-gradient" aria-hidden="true"></i> <a href=""> Sahih Al Bukhari Vol 3 </a></li> | 
+                     <li class="list-inline-item"> <i class="fa fa-file-pdf-o text-primary text-gradient" aria-hidden="true"></i> <a href=""> Sahih Al Bukhari Vol 4 </a></li> | 
+                     <hr class="dark my-2 mx-4">
+
+                     <li class="list-inline-item"> <i class="fa fa-file-pdf-o text-primary text-gradient" aria-hidden="true"></i> <a href=""> Sahih Al Bukhari Vol 5 </a></li> | 
+                     <li class="list-inline-item"> <i class="fa fa-file-pdf-o text-primary text-gradient" aria-hidden="true"></i> <a href=""> Sahih Al Bukhari Vol 6 </a></li> | 
+                     <li class="list-inline-item"> <i class="fa fa-file-pdf-o text-primary text-gradient" aria-hidden="true"></i> <a href=""> Sahih Al Bukhari Vol 7 </a></li> | 
+                     <li class="list-inline-item"> <i class="fa fa-file-pdf-o text-primary text-gradient" aria-hidden="true"></i> <a href=""> Sahih Al Bukhari Vol 8 </a></li> | 
+                     {% endfor %}
+                     </ul>
+
+                  </div>
+               </div>
+               </div>
+            </div>
+         </div>
+
+        <div class="col-lg-12 col-12  mt-4">
+          <div class="card card-profile overflow-hidden z-index-2">
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-12  my-auto">
+                <div class="card-body">
+                  <h4 class="mb-0">Riyad as-Salihin</h4>
+                  <h6 class="text-info">Total 8 Volumes</h6>
+                  <!-- <p class="mb-0">Artist is a term applied to a person who engages in an activity deemed to be an art.</p> -->
+
+                  <ul class="list-inline text-lg ">
+                    <li class="list-inline-item"> <i class="fa fa-file-pdf-o text-primary text-gradient" aria-hidden="true"></i> <a href=""> Sahih Al Bukhari Vol 1 </a></li> | 
+                    <li class="list-inline-item"> <i class="fa fa-file-pdf-o text-primary text-gradient" aria-hidden="true"></i> <a href=""> Sahih Al Bukhari Vol 2 </a></li> | 
+                    <li class="list-inline-item"> <i class="fa fa-file-pdf-o text-primary text-gradient" aria-hidden="true"></i> <a href=""> Sahih Al Bukhari Vol 3 </a></li> | 
+                    <li class="list-inline-item"> <i class="fa fa-file-pdf-o text-primary text-gradient" aria-hidden="true"></i> <a href=""> Sahih Al Bukhari Vol 4 </a></li> | 
+                    <hr class="dark my-2 mx-4">
+
+                    <li class="list-inline-item"> <i class="fa fa-file-pdf-o text-primary text-gradient" aria-hidden="true"></i> <a href=""> Sahih Al Bukhari Vol 5 </a></li> | 
+                    <li class="list-inline-item"> <i class="fa fa-file-pdf-o text-primary text-gradient" aria-hidden="true"></i> <a href=""> Sahih Al Bukhari Vol 6 </a></li> | 
+                    <li class="list-inline-item"> <i class="fa fa-file-pdf-o text-primary text-gradient" aria-hidden="true"></i> <a href=""> Sahih Al Bukhari Vol 7 </a></li> | 
+                    <li class="list-inline-item"> <i class="fa fa-file-pdf-o text-primary text-gradient" aria-hidden="true"></i> <a href=""> Sahih Al Bukhari Vol 8 </a></li> | 
+
+                  </ul>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-12 col-12  mt-4">
+          <div class="card card-profile overflow-hidden z-index-2">
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-12  my-auto">
+                <div class="card-body">
+                  <h4 class="mb-0">Sahih Muslim</h4>
+                  <h6 class="text-info">Total 8 Volumes</h6>
+                  <!-- <p class="mb-0">Artist is a term applied to a person who engages in an activity deemed to be an art.</p> -->
+
+                  <ul class="list-inline text-lg ">
+                    <li class="list-inline-item"> <i class="fa fa-file-pdf-o text-primary text-gradient" aria-hidden="true"></i> <a href=""> Sahih Al Bukhari Vol 1 </a></li> | 
+                    <li class="list-inline-item"> <i class="fa fa-file-pdf-o text-primary text-gradient" aria-hidden="true"></i> <a href=""> Sahih Al Bukhari Vol 2 </a></li> | 
+                    <li class="list-inline-item"> <i class="fa fa-file-pdf-o text-primary text-gradient" aria-hidden="true"></i> <a href=""> Sahih Al Bukhari Vol 3 </a></li> | 
+                    <li class="list-inline-item"> <i class="fa fa-file-pdf-o text-primary text-gradient" aria-hidden="true"></i> <a href=""> Sahih Al Bukhari Vol 4 </a></li> | 
+                    <hr class="dark my-2 mx-4">
+
+                    <li class="list-inline-item"> <i class="fa fa-file-pdf-o text-primary text-gradient" aria-hidden="true"></i> <a href=""> Sahih Al Bukhari Vol 5 </a></li> | 
+                    <li class="list-inline-item"> <i class="fa fa-file-pdf-o text-primary text-gradient" aria-hidden="true"></i> <a href=""> Sahih Al Bukhari Vol 6 </a></li> | 
+                    <li class="list-inline-item"> <i class="fa fa-file-pdf-o text-primary text-gradient" aria-hidden="true"></i> <a href=""> Sahih Al Bukhari Vol 7 </a></li> | 
+                    <li class="list-inline-item"> <i class="fa fa-file-pdf-o text-primary text-gradient" aria-hidden="true"></i> <a href=""> Sahih Al Bukhari Vol 8 </a></li> | 
+
+                  </ul>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+   </div>
+   <div class="position-absolute w-100 bottom-0 mn-n1">
+      <svg width="100%" viewBox="0 -1 1920 166" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+         <title>wave-up</title>
+         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g transform="translate(0.000000, 5.000000)" fill="#FFFFFF" fill-rule="nonzero">
+               <g id="wave-up" transform="translate(0.000000, -5.000000)">
+                  <path d="M0,70 C298.666667,105.333333 618.666667,95 960,39 C1301.33333,-17 1621.33333,-11.3333333 1920,56 L1920,165 L0,165 L0,70 Z" fill="#f8f9fa"></path>
+               </g>
+            </g>
+         </g>
+      </svg>
+   </div>
+</section>
+{% endblock content%}
+
+{% block javascripts %}{% endblock javascripts %}

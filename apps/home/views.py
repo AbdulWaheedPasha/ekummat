@@ -10,6 +10,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
 
+from .models import Book,BookPDF
+
 
 def home(request):
     context = {}
@@ -17,7 +19,10 @@ def home(request):
     return HttpResponse(html_template.render(context, request))
 
 def pdf_book_list(request):
-    context = {}
+    book_list = Book.objects.prefetch_related('bookpdf_set').all()
+    # books = Book.objects.all()
+    # bookpdf = BookPDF.objects.all()
+    context = {"book_list":book_list}
     html_template = loader.get_template('frontend/pdf_book_list.html')
     return HttpResponse(html_template.render(context,request))
 
