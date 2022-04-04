@@ -11,12 +11,38 @@ from django.template import loader
 from django.urls import reverse
 
 from .models import Book,BookPDF
+import requests
+
+def quran_list_chapter(request):
 
 
-def home(request):
-    context = {}
+    url = "https://api.quran.com/api/v4/chapters"
+    payload = "{}"
+    response = requests.request("GET", url, data=payload)
+    print(response.text)
+    # import json
+    # chapter_list = json.loads(response)
+    json_response = response.json()
+    chapter_list = json_response['chapters']
+    context = {"chapter_list":chapter_list}
+
     html_template = loader.get_template('frontend/home.html')
     return HttpResponse(html_template.render(context, request))
+
+
+def quran_get_chapter(request,chapter_id):
+    print("quran_get_chapter")
+    print(chapter_id)
+    url = "https://api.quran.com/api/v4/verses/by_chapter/1"
+    payload = "{}"
+    response = requests.request("GET", url, data=payload)
+    print(response.text)
+    json_response = response.json()
+    chapter_list = json_response
+    context = {"chapter_list":chapter_list}
+    html_template = loader.get_template('frontend/quran_get_chapter.html')
+    return HttpResponse(html_template.render(context, request))
+
 
 def pdf_book_list(request):
     book_list = Book.objects.prefetch_related('bookpdf_set').all()

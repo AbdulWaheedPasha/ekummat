@@ -1,15 +1,21 @@
 @font-face {
     font-family: 'uthmani';
-    src: url('KFGQPC Uthmanic Script HAFS Regular.otf');
+    src: local('uthmani'),
+    url('/static/frontend/assets/fonts/KFGQPC Uthmanic Script HAFS Regular.otf') format("opentype");
     font-weight: normal;
     font-style: normal;
+
   }
   .uthmani {
     font-family: uthmani;
     font-size: 19px;
+    color: red;
   }
 
 #hadees-chapter-table tbody tr:hover{
     background-color: #e9ecef;
     cursor: pointer;
+}
+.black {
+  color: black !important;
 }

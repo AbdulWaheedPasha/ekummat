@@ -8,8 +8,9 @@ from apps.home import views
 
 urlpatterns = [
     #Home page
-    path('',views.home, name='homenew'),
-    
+    path('',views.quran_list_chapter, name='quran_list_chapter'),
+    path('<int:chapter_id>/',views.quran_get_chapter, name='quran_get_chapter'),
+
     path('hadees_mainchapter',views.hadees_mainchapter, name='hadees_mainchapter'),
     path('hadees_subchapter',views.hadees_subchapter, name='hadees_subchapter'),
     
@@ -19,6 +20,6 @@ urlpatterns = [
     path('login', views.index, name='home'),
 
     # Matches any html file
-    re_path(r'^.*\.*', views.pages, name='pages'),
+    # re_path(r'^.*\.*', views.pages, name='pages'),
 
 ]

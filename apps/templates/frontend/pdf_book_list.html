@@ -60,7 +60,7 @@
                      <ul class="list-inline text-lg ">
                         {% for bk in book.bookpdf_set.all %}
                         
-                           <li class="list-inline-item"> <i class="fa fa-file-pdf-o text-primary text-gradient" aria-hidden="true"></i> <a href="{{bk|file_url}}">  {{bk.title}}</a></li> |
+                           <li class="list-inline-item"> <i class="fa fa-file-pdf-o text-primary text-gradient" aria-hidden="true"></i> <a href="{{bk|file_url}}" target="_blank">  {{bk.title}}</a></li> |
                            {% if forloop.counter == 4 %}
                               <hr class="dark my-2 mx-4">
                            {% endif %}

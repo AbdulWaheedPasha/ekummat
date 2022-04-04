@@ -7,6 +7,59 @@
 
 {% block content %}
 
+<section class="my-5 py-5">
+
+    <div class="container mt-sm-5 mt-3">
+       <!-- 1A Section -->
+       <div class="row">
+          <div class="col">
+             <div class="mb-4 ">
+                <nav aria-label="breadcrumb">
+                   <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="#">Home</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Quran</li>
+                   </ol>
+                </nav>
+                <!-- <h3>Chapter - Section 1</h3> -->
+             </div>
+          </div>
+       </div>
+       <!-- 1A Section 1A -->
+
+
+
+<div class="row" id="quran-list">
+    <div class="col-md-4 ml-auto">
+        {% for chapter in chapter_list %}
+            {% if forloop.counter <= 38 %}
+                <button type="button" class="btn btn-outline-dark btn-lg w-100 "> {{chapter.id}} &nbsp; {{chapter.name_simple}}  <span style="color: black;" class="uthmani">&nbsp; {{chapter.name_arabic}}</span> </button>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div class="col-md-4 mr-auto">
+        {% for chapter in chapter_list %}
+        {% if forloop.counter > 38 and forloop.counter <= 76 %}
+        <button type="button" class="btn btn-outline-dark btn-lg w-100 "> {{chapter.id}} &nbsp; {{chapter.name_simple}}  <span style="color: black;" class="uthmani">&nbsp; {{chapter.name_arabic}}</span> </button>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <div class="col-md-4 mr-auto">
+        {% for chapter in chapter_list %}
+        {% if forloop.counter > 76 %}
+        <button type="button" class="btn btn-outline-dark btn-lg w-100 "> {{chapter.id}} &nbsp; {{chapter.name_simple}}  <span style="color: black;" class="uthmani">&nbsp; {{chapter.name_arabic}}</span> </button>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    
+  </div>
+
+
+
+    </div>
+    </div>
+ </section>
+
 {% endblock content%}
 
 {% block javascripts %}{% endblock javascripts %}

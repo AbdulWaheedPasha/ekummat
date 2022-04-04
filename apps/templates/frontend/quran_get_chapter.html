@@ -1,0 +1,40 @@
+{% extends 'frontend/base.html' %}
+
+{% block title %} Dashboard {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<section class="my-5 py-5">
+
+    <div class="container mt-sm-5 mt-3">
+       <!-- 1A Section -->
+       <div class="row">
+          <div class="col">
+             <div class="mb-4 ">
+                <nav aria-label="breadcrumb">
+                   <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="#">Quran</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">chapter name</li>
+                   </ol>
+                </nav>
+                <!-- <h3>Chapter - Section 1</h3> -->
+             </div>
+          </div>
+       </div>
+       <!-- 1A Section 1A -->
+
+       <p>surah details {{chapter_list}}</p>
+
+
+
+
+    </div>
+    </div>
+ </section>
+
+{% endblock content%}
+
+{% block javascripts %}{% endblock javascripts %}

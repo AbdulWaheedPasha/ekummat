@@ -19,8 +19,12 @@
   <link href="/static/frontend/assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="/static/frontend/assets/css/soft-design-system.css?v=1.0.5" rel="stylesheet" />
-  
+
+
+  <link href="/static/frontend/fonts/Uthmani-Hafs.woff2" type="font/woff2"  rel="preload" crossorigin="" />
   <link href="/static/frontend/assets/css/custom.css" rel="stylesheet">
+
+
 
 
   {% block stylesheets %}{% endblock stylesheets %}
@@ -47,7 +51,7 @@
                   <div class="collapse navbar-collapse pt-3 pb-2 py-lg-0 w-100" id="navigation">
                      <ul class="navbar-nav navbar-nav-hover ms-lg-10 ps-lg-5 w-100">
                         <li class="nav-item dropdown dropdown-hover mx-2">
-                           <a class="nav-link nav-link-icon me-2" href="#" target="_blank">
+                           <a class="nav-link nav-link-icon me-2" href="{% url 'quran_list_chapter' %}" target="_self">
                               <p class="d-inline text-lg z-index-1 font-weight-bold" >Home</p>
                            </a>
                         </li>
@@ -57,12 +61,12 @@
                            </a>
                            </li> -->
                         <li class="nav-item dropdown dropdown-hover mx-2">
-                           <a class="nav-link nav-link-icon me-2" href="{% url 'hadees_mainchapter' %}">
+                           <a class="nav-link nav-link-icon me-2" href="{% url 'hadees_mainchapter' %}" target="_self">
                               <p class="d-inline text-lg z-index-1 font-weight-bold" >Mishkat al-Masabih</p>
                            </a>
                         </li>
                         <li class="nav-item dropdown dropdown-hover mx-2">
-                           <a class="nav-link nav-link-icon me-2" href="{% url 'pdf_book_list' %}">
+                           <a class="nav-link nav-link-icon me-2" href="{% url 'pdf_book_list' %}" target="_self">
                               <p class="d-inline text-lg z-index-1 font-weight-bold" >PDF Books</p>
                            </a>
                         </li>
