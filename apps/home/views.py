@@ -10,7 +10,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
 
-from .models import Book,BookPDF
+from .models import Book,BookPDF,QuranChapterOld
 import requests
 
 def quran_list_chapter(request):
@@ -31,15 +31,17 @@ def quran_list_chapter(request):
 
 
 def quran_get_chapter(request,chapter_id):
-    print("quran_get_chapter")
-    print(chapter_id)
-    url = "https://api.quran.com/api/v4/verses/by_chapter/1"
+
+    url = "https://api.quran.com/api/v4/chapters/{id}?language=en".format(id=chapter_id)
     payload = "{}"
     response = requests.request("GET", url, data=payload)
-    print(response.text)
     json_response = response.json()
-    chapter_list = json_response
-    context = {"chapter_list":chapter_list}
+    chapter = json_response['chapter']
+
+    quran_obj = QuranChapterOld.objects.filter(chapter_no=chapter_id).first()
+    print("quran_obj",quran_obj)
+
+    context = {"chapter":chapter,"quran":quran_obj}
     html_template = loader.get_template('frontend/quran_get_chapter.html')
     return HttpResponse(html_template.render(context, request))
 

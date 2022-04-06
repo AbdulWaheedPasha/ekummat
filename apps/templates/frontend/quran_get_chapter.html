@@ -17,7 +17,7 @@
                 <nav aria-label="breadcrumb">
                    <ol class="breadcrumb">
                       <li class="breadcrumb-item"><a href="#">Quran</a></li>
-                      <li class="breadcrumb-item active" aria-current="page">chapter name</li>
+                      <li class="breadcrumb-item active" aria-current="page">{{chapter.name_simple}} - <span class="">{{chapter.name_arabic}}</span></li>
                    </ol>
                 </nav>
                 <!-- <h3>Chapter - Section 1</h3> -->
@@ -26,10 +26,7 @@
        </div>
        <!-- 1A Section 1A -->
 
-       <p>surah details {{chapter_list}}</p>
-
-
-
+       <span style="font-size: 30px !important; color: black; ">{{quran.chapter_content|safe}}</span>
 
     </div>
     </div>
