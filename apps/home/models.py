@@ -33,7 +33,7 @@ class BookPDF(models.Model):
     book = models.ForeignKey(Book,on_delete=models.SET_NULL,null=True, blank=True,)
     title = models.TextField(blank=False,null=False)
     total_pages = models.TextField(blank=True,null=True)
-    file_url = models.FileField(upload_to=BookPDF_upload_location, null = False, blank = False)
+    file_url = models.FileField(upload_to=BookPDF_upload_location, null = True, blank = True)
     external_file_url = models.TextField(blank=True,null=True)
     
     def __str__(self):
