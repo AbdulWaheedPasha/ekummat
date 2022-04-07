@@ -10,7 +10,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
 
-from .models import Book,BookPDF,QuranChapterOld
+from .models import *
 import requests
 
 def quran_list_chapter(request):
@@ -19,9 +19,7 @@ def quran_list_chapter(request):
     url = "https://api.quran.com/api/v4/chapters"
     payload = "{}"
     response = requests.request("GET", url, data=payload)
-    print(response.text)
-    # import json
-    # chapter_list = json.loads(response)
+
     json_response = response.json()
     chapter_list = json_response['chapters']
     context = {"chapter_list":chapter_list}
@@ -39,7 +37,6 @@ def quran_get_chapter(request,chapter_id):
     chapter = json_response['chapter']
 
     quran_obj = QuranChapterOld.objects.filter(chapter_no=chapter_id).first()
-    print("quran_obj",quran_obj)
 
     context = {"chapter":chapter,"quran":quran_obj}
     html_template = loader.get_template('frontend/quran_get_chapter.html')
@@ -55,11 +52,15 @@ def pdf_book_list(request):
     return HttpResponse(html_template.render(context,request))
 
 def hadees_mainchapter(request):
-    context = {}
+    hadith_main_chapter_list = HadithBookMainChapter.objects.filter(hadithbook_id=1)
+    print(hadith_main_chapter_list)
+    context = {"hadith_main_chapter_list":hadith_main_chapter_list}
     html_template = loader.get_template('frontend/hadees_mainchapter.html')
     return HttpResponse(html_template.render(context,request))
 
-def hadees_subchapter(request):
+def hadees_subchapter(request,chapter_no):
+    print(chapter_no)
+    
     context = {}
     html_template = loader.get_template('frontend/hadees_subchapter.html')
     return HttpResponse(html_template.render(context,request))
