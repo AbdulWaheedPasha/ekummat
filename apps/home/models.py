@@ -3,6 +3,7 @@
 Copyright (c) 2019 - present AppSeed.us
 """
 
+from operator import mod
 from pyexpat import model
 from statistics import mode
 from turtle import title, update
@@ -49,3 +50,51 @@ class QuranChapterOld(models.Model):
 
     def __str__(self):
         return str(self.chapter_no)
+
+
+#Mishkatul Masabeeh
+class HadithBook(models.Model):
+    title = models.CharField(max_length=100,null=False,blank=False)
+    description = models.TextField(null=True,blank=True)
+
+    def __str__(self):
+        return self.title
+
+#Mishkatul Masabeeh #Faith (main chapter heading)
+class HadithBookMainChapter(models.Model):
+    hadithbook = models.ForeignKey(HadithBook,on_delete=models.SET_NULL,null=True)
+    chapter_no = models.IntegerField(max_length=3)
+    english_name = models.CharField(max_length=200)
+    arabic_name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.english_name
+
+#Mishkatul Masabeeh -> #Faith -> #sub content
+class HadithBookSubChapter(models.Model):
+    hadith_book_main_chapter = models.ForeignKey(HadithBookMainChapter,on_delete=models.SET_NULL,null=True)
+    sub_chapter_name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return f"{self.hadith_book_main_chapter} - {self.sub_chapter_name}"
+
+
+HADITHGRADE = [
+    ("Muttafaqun 'alayh","Muttafaqun 'alayh"),
+    ("Sahih","Sahih"),
+    ("Hasan","Hasan"),
+    ("Zaeef","Zaeef"),
+]
+
+class HadithBookContent(models.Model):
+    hadith_book_sub_chapter = models.ForeignKey(HadithBookSubChapter,on_delete=models.SET_NULL,null=True)
+    sr_no = models.IntegerField(max_length=3)
+    arabic_content = models.TextField()
+    roman_urdu_content = models.TextField()
+    hindi_content = models.TextField()
+    reference_field = models.TextField()
+    grade = models.CharField(choices=HADITHGRADE,default="Sahih", max_length=50)
+
+    def __str__(self):
+        return f"{self.hadith_book_sub_chapter}"
+

@@ -1,6 +1,6 @@
 {% extends 'frontend/base.html' %}
 
-{% block title %} Dashboard {% endblock title %}
+{% block title %} Mishkat al-Masabih {% endblock title %}
 
 <!-- Specific CSS goes HERE -->
 {% block stylesheets %}{% endblock stylesheets %}
@@ -43,118 +43,24 @@
                       <th class="text-uppercase text-gradient text-dark text-xxs font-weight-bolder ps-2"></th>
                       <th class="text-uppercase text-gradient text-dark text-lg font-weight-bolder  ps-2">Name </th>
                       <th class="text-uppercase text-gradient text-dark text-lg font-weight-bolder  ps-2">Arabic Name</th>
-                      <th class="text-uppercase text-gradient text-dark text-lg font-weight-bolder  ps-2">Completion </th>
+                      <!-- <th class="text-uppercase text-gradient text-dark text-lg font-weight-bolder  ps-2">Completion </th> -->
                    </tr>
                 </thead>
                 <tbody>
-                   <tr data-url="some_url1">
-                     <a class="nav-link nav-link-icon me-2" href="{% url 'pdf_book_list' %}"> hi </a>
+                   {% for hadith in hadith_main_chapter_list%}
+                   <tr data-url="some_url1" onclick="window.location = 'hadees_subchapter/{{hadith.chapter_no}}/'">
                       <td>
-                         <p class="mb-0 text-lg  text-dark font-weight-bold text-center" >1</p>
-                      </td>
-                      <td>
-                         <p class="mb-0 text-lg  text-dark font-weight-bold" >Faith</p>
+                         <p class="mb-0 text-lg  text-dark font-weight-bold text-center" >{{hadith.chapter_no}}</p>
                       </td>
                       <td>
-                         <p class="mb-0 text-lg  text-dark font-weight-bold uthmani" >كتاب الإيمان</p>
+                         <p class="mb-0 text-lg  text-dark font-weight-bold" >{{hadith.english_name}}</p>
                       </td>
-                      <td class="align-middle text-center">
-                         <div class="d-flex align-items-center">
-                            <span class="me-2 text-md">60%</span>
-                            <div>
-                               <div class="progress">
-                                  <div class="progress-bar bg-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-                               </div>
-                            </div>
-                         </div>
+                      <td>
+                         <p class="mb-0 text-lg  text-dark font-weight-bold uthmani" ><span class="uthmani">{{hadith.arabic_name}}</span></p>
                       </td>
-          
+
                    </tr>
-                   <tr>
-                      <td>
-                         <p class="mb-0 text-lg  text-dark font-weight-bold text-center" >2</p>
-                      </td>
-                      <td>
-                         <p class="mb-0 text-lg  text-dark font-weight-bold" >Knowledge</p>
-                      </td>
-                      <td>
-                         <p class="mb-0 text-lg  text-dark font-weight-bold uthmani" >كتاب العلم</p>
-                      </td>
-                      <td class="align-middle text-center">
-                         <div class="d-flex align-items-center">
-                            <span class="me-2 text-md">60%</span>
-                            <div>
-                               <div class="progress">
-                                  <div class="progress-bar bg-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-                               </div>
-                            </div>
-                         </div>
-                      </td>
-                   </tr>
-                   <tr>
-                      <td>
-                         <p class="mb-0 text-lg  text-dark font-weight-bold text-center" >3</p>
-                      </td>
-                      <td>
-                         <p class="mb-0 text-lg  text-dark font-weight-bold" >Purification</p>
-                      </td>
-                      <td>
-                         <p class="mb-0 text-lg  text-dark font-weight-bold uthmani" > كتاب الطهارة </p>
-                      </td>
-                      <td class="align-middle text-center">
-                         <div class="d-flex align-items-center">
-                            <span class="me-2 text-md">60%</span>
-                            <div>
-                               <div class="progress">
-                                  <div class="progress-bar bg-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-                               </div>
-                            </div>
-                         </div>
-                      </td>
-                   </tr>
-                   <!-- <tr>
-                      <td>
-                            <h5 class="mb-0 text-md text-center">2</h5>                    
-                      </td>
-                      <td>
-                        <h5 class="mb-0 text-md">Knowledge</h5>
-                      </td>
-                      <td>
-                        <h5 class="mb-0 text-md uthmani"> كتاب العلم </h5>
-                      </td>
-                      <td class="align-middle text-center">
-                        <div class="d-flex align-items-center">
-                          <span class="me-2 text-md">60%</span>
-                          <div>
-                            <div class="progress">
-                              <div class="progress-bar bg-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                      </tr>
-                      
-                      <tr>
-                      <td>
-                            <h5 class="mb-0 text-md text-center">3</h5>                    
-                      </td>
-                      <td>
-                        <h5 class="mb-0 text-md">Purification</h5>
-                      </td>
-                      <td>
-                        <h5 class="mb-0 text-md uthmani">كتاب الطهارة</h5>
-                      </td>
-                      <td class="align-middle text-center">
-                        <div class="d-flex align-items-center">
-                          <span class="me-2 text-md">60%</span>
-                          <div>
-                            <div class="progress">
-                              <div class="progress-bar bg-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                      </tr> -->
+                   {% endfor %}
                 </tbody>
              </table>
           </div>
@@ -166,9 +72,10 @@
 
 {% block javascripts %}
 <script>
-   $('table tr').on('click', 'td', function () {
-   window.location.href = "redirect url";
-})
+//    $('table tr').on('click', 'td', function () {
+//       alert("dd");
+//    window.location.href = "{% url 'hadees_subchapter' %}";
+// })
 
 // $(function () {
 //     $('table tr').click(function () {
