@@ -45,26 +45,30 @@ def quran_get_chapter(request,chapter_id):
 
 def pdf_book_list(request):
     book_list = Book.objects.prefetch_related('bookpdf_set').all()
-    # books = Book.objects.all()
-    # bookpdf = BookPDF.objects.all()
     context = {"book_list":book_list}
     html_template = loader.get_template('frontend/pdf_book_list.html')
     return HttpResponse(html_template.render(context,request))
 
-def hadees_mainchapter(request):
+def hadith_mainchapter(request):
     hadith_main_chapter_list = HadithBookMainChapter.objects.filter(hadithbook_id=1)
     print(hadith_main_chapter_list)
     context = {"hadith_main_chapter_list":hadith_main_chapter_list}
     html_template = loader.get_template('frontend/hadees_mainchapter.html')
     return HttpResponse(html_template.render(context,request))
 
-def hadees_subchapter(request,chapter_no):
-    print(chapter_no)
-    
-    context = {}
+def hadith_subchapter(request,sub_chp):
+    print(sub_chp)
+    hadith_sub_chapter = HadithBookSubChapter.objects.filter(hadith_book_main_chapter_id=1)
+    # print(hadith_sub_chapter.hadith_book_main_chapter)
+    context = {"hadith_sub_chapter":hadith_sub_chapter}
     html_template = loader.get_template('frontend/hadees_subchapter.html')
     return HttpResponse(html_template.render(context,request))
 
+def hadith_content(request,sub_chp,sr_no):
+    print("share_hadith", sub_chp,sr_no)
+    content = HadithBookContent.objects.filter(hadith_book_sub_chapter=sub_chp,sr_no=sr_no).first()
+    print(content)
+    pass
 
 
 @login_required(login_url="/login/")

@@ -10,6 +10,11 @@ from turtle import title, update
 from venv import create
 from django.db import models
 from django.contrib.auth.models import User
+from django.template.defaultfilters import slugify
+from uuid import uuid4
+
+def generateUUID():
+    return str(uuid4())
 
 from tinymce.models import HTMLField
 
@@ -56,9 +61,15 @@ class QuranChapterOld(models.Model):
 class HadithBook(models.Model):
     title = models.CharField(max_length=100,null=False,blank=False)
     description = models.TextField(null=True,blank=True)
+    slug = models.SlugField(unique=False)
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        self.slug = self.slug or slugify(self.title)
+        super().save(*args, **kwargs)
+
 
 #Mishkatul Masabeeh #Faith (main chapter heading)
 class HadithBookMainChapter(models.Model):

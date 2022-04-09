@@ -13,6 +13,7 @@ class HadithBookAdmin(admin.ModelAdmin):
     list_display = ("title",)
     list_filter = ("title",)
     search_fields = ()
+    prepopulated_fields = {'slug': ('title',)}
 
 @admin.register(HadithBookMainChapter)
 class HadithBookMainChapterAdmin(admin.ModelAdmin):

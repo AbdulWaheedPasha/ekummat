@@ -8,275 +8,162 @@
 {% block content %}
 <section class="my-5 py-5">
     <div class="container mt-sm-5 mt-3">
-       <!-- 1A Section -->
+       <!-- Hadith Sub Content Start  -->
+
+       {% for sub in hadith_sub_chapter %}
        <div class="row">
           <div class="col">
-             <div class="mb-4 ">
+             <div class="mt-0">
                 <nav aria-label="breadcrumb">
                    <ol class="breadcrumb">
                       <li class="breadcrumb-item"><a href="#">Mishkat al-Masabih</a></li>
-                      <li class="breadcrumb-item active" aria-current="page">1 Faith</li>
-                      <li class="breadcrumb-item active" aria-current="page">1A Section</li>
+                      <li class="breadcrumb-item active" aria-current="page">{{sub.hadith_book_main_chapter}}</li>
+                      <li class="breadcrumb-item active" aria-current="page">{{sub.sub_chapter_name}}</li>
                    </ol>
                 </nav>
                 <!-- <h3>Chapter - Section 1</h3> -->
              </div>
           </div>
        </div>
-       <!-- 1A Section 1A -->
-       <div class="row">
-          <!-- <div class="col-lg-3">
-             <div class="position-sticky pb-lg-5 pb-3 mt-lg-0 mt-5 ps-2" style="top: 100px">
-               <h3>Elements</h3>
-               <h6 class="text-secondary font-weight-normal pe-3">70+ carefully crafted small elements that come with multiple colors and shapes. These are only a few of them.</h6>
-             </div>
-             </div> -->
-          <!--  1 Hadees in Roman urdu | Hindi | Arabic   -->
-          <div class="col-lg-12">
-             <div class="row mt-3">
-                <!-- Buttons color -->
-                <div class="col-12">
-                   <div class="position-relative border-radius-xl overflow-hidden shadow-lg mb-3">
-                      <div class="container border-bottom">
-                         <div class="row justify-space-between py-2">
-                            <div class="col-lg-6 me-auto">
-                               <div class="nav-wrapper position-relative end-0">
-                                  <ul class="nav nav-pills nav-fill flex-row p-1" role="tablist">
-                                     <li class="nav-item">
-                                        <a class="nav-link mb-0 px-0 py-1 active" data-bs-toggle="tab" href="#roman-urdu-1" role="tab" aria-controls="preview" aria-selected="true">
-                                        <i class="fas fa-desktop text-sm me-2"></i> Roman Urdu
-                                        </a>
-                                     </li>
-                                     <li class="nav-item">
-                                        <a class="nav-link mb-0 px-0 py-1" data-bs-toggle="tab" href="#hindi-1" role="tab" aria-controls="code" aria-selected="false">
-                                        <i class="fas fa-code text-sm me-2"></i> Hindi
-                                        </a>
-                                     </li>
-                                     <li class="nav-item">
-                                        <a class="nav-link mb-0 px-0 py-1" data-bs-toggle="tab" href="#arabic-1" role="tab" aria-controls="code" aria-selected="false">
-                                        <i class="fas fa-code text-sm me-2"></i> Arabic
-                                        </a>
-                                     </li>
-                                  </ul>
-                               </div>
-                            </div>
-                            <div class="col-lg-2">
-                               <p class="lead text-dark pt-1 mb-0">
-                                  <a href="javascript:;">
-                                  <i class="fas fa-copy text-md me-3"></i>
-                                  </a>
-                                  <i class="fas fa-share text-md me-1"></i>
-                               </p>
-                            </div>
-                         </div>
-                      </div>
-                      <div class="tab-content tab-space">
-                         <div class="tab-pane active" id="roman-urdu-1">
-                            <div class="card-body">
-                               <p style="color:black;">
-                                  1. Umar bin Khattab (Razi Allahu anhu) bayan karte hai, Allah ke Rasool (ﷺ) ne farmaya: “tamam amaal ka daromadar niyato par hai, her shakhs ko wohi kuch milega jo usne niyat ki, bus jis shakhs ki hijrat Allah Aur uske rasool ki khatir huwi to uski hijrat Allah aur uske rasool (ﷺ) ki khatir hai, wur jis shakhs ki hijrat husule duniya ya kisi aurat se shadi karne ki khatir huwi to uski hijrat uski khatir hai jiski khatir usne hijrat ki.” 
-                               </p>
-                               <p class="text-xs mb-0">
-                                  Reference: [Bukhari : 1, 54, 2529, 3898, 5070, 6689, 6953] [Muslim : 1907, 155] [Nisai : 3825]
-                               </p>
-                            </div>
-                         </div>
-                         <div class="tab-pane" id="hindi-1">
-                            <div class="position-relative p-4 pb-2">
-                               <!-- <a class="btn btn-sm bg-gradient-dark position-absolute end-4 mt-3" onclick="copyCode(this);" type="button"><i class="fas fa-copy text-sm me-1"></i> Copy</a> -->
-                               <figure class="highlight">
-                                  <!-- <pre> -->
-                                  <code class="language-html" data-lang="html">  
-                                  [1] उमर बिन ख़त्ताब रज़ियल्लाहु अन्हु बयान करते हैं, अल्लाह के रसूल सल्लल्लाहु अलैहि वसल्लम ने फ़रमाया: “तमाम आमाल का दारोमदार नियतो पर है, हर शख़्स को वही कुछ मिलेगा जो उसने नियत की है, तो जिस शख़्स की हिजरत अल्लाह और उसके रसूल के लिए हुई तो उसकी हिजरत अल्लाह और उसके रसूल सल्लल्लाहु अलैहि वसल्लम के लिए है और जिसकी हिजरत दुनिया कमाने या किसी औरत से शादी करने के लिए हुई तो उसकी हिजरत उसके लिए है जिसके लिए उसने हिजरत की”।
-                                  </code>
-                                  <!-- </pre> -->
-                               </figure>
-                            </div>
-                         </div>
-                         <div class="tab-pane" id="arabic-1">
-                            <div class="card-body">
-                               <p style="color:black;" class="uthmani" dir='rtl'>
-                                  1. عَنْ عُمَرَ بْنِ الْخَطَّابِ رَضِيَ اللَّهُ عَنْهُ قَالَ: قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ: «إِنَّمَا الْأَعْمَال بِالنِّيَّاتِ وَإِنَّمَا لكل امْرِئ مَا نَوَى فَمَنْ كَانَتْ هِجْرَتُهُ إِلَى اللَّهِ وَرَسُولِهِ فَهِجْرَتُهُ إِلَى اللَّهِ وَرَسُولِهِ وَمَنْ كَانَتْ هِجْرَتُهُ إِلَى دُنْيَا يُصِيبُهَا أَوِ امْرَأَةٍ يَتَزَوَّجُهَا فَهجرَته إِلَى مَا هَاجر إِلَيْهِ» 
-                               </p>
-                            </div>
-                         </div>
-                      </div>
-                   </div>
-                </div>
-             </div>
-          </div>
-          <!--  1  Hadees in Roman urdu | Hindi | Arabic   -->
-          <!--  2  Hadees in Roman urdu | Hindi | Arabic   -->
-          <div class="col-lg-12">
-             <div class="row mt-3">
-                <!-- Buttons color -->
-                <div class="col-12">
-                   <div class="position-relative border-radius-xl overflow-hidden shadow-lg mb-3">
-                      <div class="container border-bottom">
-                         <div class="row justify-space-between py-2">
-                            <div class="col-lg-6 me-auto">
-                               <div class="nav-wrapper position-relative end-0">
-                                  <ul class="nav nav-pills nav-fill flex-row p-1" role="tablist">
-                                     <li class="nav-item">
-                                        <a class="nav-link mb-0 px-0 py-1 active" data-bs-toggle="tab" href="#roman-urdu-2" role="tab" aria-controls="preview" aria-selected="true">
-                                        <i class="fas fa-desktop text-sm me-2"></i> Roman Urdu
-                                        </a>
-                                     </li>
-                                     <li class="nav-item">
-                                        <a class="nav-link mb-0 px-0 py-1" data-bs-toggle="tab" href="#hindi-2" role="tab" aria-controls="code" aria-selected="false">
-                                        <i class="fas fa-code text-sm me-2"></i> Hindi
-                                        </a>
-                                     </li>
-                                     <li class="nav-item">
-                                        <a class="nav-link mb-0 px-0 py-1" data-bs-toggle="tab" href="#arabic-2" role="tab" aria-controls="code" aria-selected="false">
-                                        <i class="fas fa-code text-sm me-2"></i> Arabic
-                                        </a>
-                                     </li>
-                                  </ul>
-                               </div>
-                            </div>
-                            <div class="col-lg-2">
-                               <p class="lead text-dark pt-1 mb-0">
-                                  <a href="javascript:;">
-                                  <i class="fas fa-copy text-md me-3"></i>
-                                  </a>
-                                  <i class="fas fa-share text-md me-1"></i>
-                               </p>
-                            </div>
-                         </div>
-                      </div>
-                      <div class="tab-content tab-space">
-                         <div class="tab-pane active" id="roman-urdu-2">
-                            <div class="card-body">
-                               <p style="color:black;">
-                                  2. Ummar bin khattab (Razi Allahu anhu) bayan karte hai, hum ek roz Allah ke Rasool (ﷺ) ki khidmat mein hazir the ke is asna mein ek aadmi hamare paas aya, jiske kapde bahut hi safaid aur baal intehai siya the, us par safar ke aasar nazar aate the ne hum mein se koi use janta tha, hatta ke wo do zano hokar Nabi (ﷺ) ke samen baith gaya aur usne apne dono hath apni raano par rakh liye, aur kaha muhammad (ﷺ)! Islaam ke mutalliq mujhe bataye, aap (ﷺ) ne farmaya: “Islam ye hai ke tum gawahi do ke Allah ke siwa koi mabood barhaq nahi, aur ye ke muhammad Allah ke rasool hai, namaz qayam karo, zakat adar karo, ramzan ke roze rakho aur agar istetaat ho to baitullah ka hajj karo.” Usne kaha: aap ne sach farmaya, hame usse tajjub huwa ke wo aap se pochta hai aur aap ki tasdeeq bhi karta hai, usne kaha: Imaan ke bare mein mujhe bataye, aap (ﷺ) ne farmaya: “Ye ke tum Allah par, uske farishto, uski kitabo, uske rasoolo, aur yome akhirat par imaan lao aur tum tadeer ke achcha aur bura hone par imaan lao.” Usne kaha: “Aap ne sach farmaya, phir usne kaha: ehsaan ke bare mein mujhe bataye, aap (ﷺ) ne farmaya: “ye ke tum Allah ki ibadat is tarah karo goya tum use daikh rahe ho aur agar tum use nahi daikh sakte to wo yaqeenan tumhe daikh raha hai.” Phir usne kaha: “Qayamat ke bare mein mujhe bataye, aap (ﷺ) ne farmaya: “maswal uske mutalliq sail se zyada nahi janta.” Usne kaha: “uski nishaniyo ke bare mein mujhe batade. Aap (ﷺ) ne farmaya: “ye ke laundi apni maalik ko janam degi, aur ye ke tum nange paao, nange badan, tang dast bakriyo ke charwaho ko buland o baala imarato ki tameer aur un par fakhar karte huwe daikhoge.” Umar (Razi Allahu anhu) ne farmaya: “phir wo shakhs chala gaya, main kuch dair thera. Phir aap (ﷺ) ne mujh se poocha: “Umar! Kya tum jante ho sail kaun tha?” maine arz kiya, Allah aur uske rasool behtar jante hai, aap (ﷺ) ne farmaya: “wo jibreel {(AS)Alehis Salam} the, wo tumhe tumhara deen sikhane ke liye tumhare paas tashreef laye the.”                      
-                               </p>
-                               <p class="text-xs mb-0">
-                                  Reference: [Muslim 28, 29]
-                               </p>
-                            </div>
-                         </div>
-                         <div class="tab-pane" id="hindi-2">
-                            <div class="position-relative p-4 pb-2">
-                               <!-- <a class="btn btn-sm bg-gradient-dark position-absolute end-4 mt-3" onclick="copyCode(this);" type="button"><i class="fas fa-copy text-sm me-1"></i> Copy</a> -->
-                               <figure class="highlight">
-                                  <!-- <pre> -->
-                                  <code class="language-html" data-lang="html">  
-                                  [2] उमर बिन ख़त्ताब रज़ियल्लाहु अन्हु बयान करते हैं, हम एक रोज़ अल्लाह के रसूल सल्लल्लाहु अलैहि वसल्लम की ख़िदमत में हाज़िर थे कि इसी दौरान एक आदमी हमारे पास आया, जिसके कपड़े बहुत ही सफ़ेद और बाल बहुत ज़्यादा काले थे, उस पर न तो सफ़र के आसार नज़र आते थे और ना हममें से कोई उसे जानता था हत्ता की वो दो ज़ानो होकर नबी सल्लल्लाहु अलैहि वसल्लम के सामने बैठ गया और उसने अपने दोनों हाथ अपनी रानो पर रख लिए , और कहा : मुहम्मद सल्लल्लाहु अलैहि वसल्लम इस्लाम के बारे में मुझे बताइए, आप सल्लल्लाहु अलैहि वसल्लम ने फ़रमाया: “इस्लाम यह है की तुम गवाही दो की अल्लाह के सिवा कोई माबूद ए बरहक़ नहीं, और यह की मुहम्मद अल्लाह के रसूल है, नमाज़ क़ायम करो, ज़कात अदा करो, रमज़ान के रोज़े रखो और अगर ताक़त हो तो बैतुल्लाह का हज करो”।  उस ने कहा: आपने सच फ़रमाया, हमें उस से ताज्जुब हुवा की वो आपसे पूछता है और आपकी तस्दीक़ भी करता है, उसने कहा: ईमान के बारे में मुझे बताइए, आप सल्लल्लाहु अलैहि वसल्लम ने फ़रमाया: “यह की तुम अल्लाह पर, उस के फ़रिश्तो पर, उसकी किताबो पर, उसके रसूलो और आख़िरत के दिन पर ईमान लाओ और तुम तकदीर के अच्छा और बुरा होने पर ईमान लाओ”। उसने कहा: आपने सच फ़रमाया, फिर उसने कहा , एहसान के बारे में मुझे बताइए, आप सल्लल्लाहु अलैहि वसल्लम ने फ़रमाया: “यह की तुम अल्लाह की इबादत इस तरह करो जैसे तुम उसे देख रहे हो और अगर तुम उसे नहीं देख सके तो वो यक़ीनन तुम्हें देख रहा है”। उसने कहा क़यामत के बारे में मुझे बताइए आप सल्लल्लाहु अलैहि वसल्लम ने फ़रमाया: “जिससे पूछा गया है वो इसके बारे में पूछने वाले से ज़्यादा नहीं जानत्ता”। उसने कहा उसकी निशानियों के बारे में मुझे बता दें। आप सल्लल्लाहु अलैहि वसल्लम ने फ़रमाया: “यह की लौंडी अपने मालिक को जन्म देगी और यह की तुम नंगे पाँव, नंगे बदन, ग़रीब बकरियों के चरवाहों को ऊँचीं व बुलंद इमारतों को बनवाते हुए और इन पर फ़ख्र करते हुए देखोगे। उमर रज़ियल्लाहु अन्हु ने फ़रमाया: फिर वो शख़्स चला गया, मैं कुछ देर ठहरा। फिर आप सल्लल्लाहु अलैहि वसल्लम ने मुझसे पूछा: “उमर! क्या तुम जानते हो पूछने वाला कौन था”? मैंने कहा: अल्लाह और उसके रसूल बेहतर जानते है, आप सल्लल्लाहु अलैहि वसल्लम ने फ़रमाया: “वो जिब्राइल अलैहिस्सलाम थे वो तुम्हें तुम्हारा दीन सिखाने के लिए तुम्हारे पास तशरीफ़ लाए थे।
-                                  </code>
-                                  <!-- </pre> -->
-                               </figure>
-                            </div>
-                         </div>
-                         <div class="tab-pane" id="arabic-2">
-                            <div class="card-body">
-                               <p style="color:black;" class="uthmani" dir='rtl'>
-                                  عَنْ عُمَرَ بْنِ الْخَطَّابِ رَضِيَ اللَّهُ عَنْهُ قَالَ: بَيْنَا نَحْنُ عِنْدَ رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ ذَاتَ يَوْمٍ إِذْ طَلَعَ عَلَيْنَا رَجُلٌ شَدِيدُ بَيَاضِ الثِّيَابِ شَدِيدُ سَوَادِ الشَّعْرِ لَا يُرَى عَلَيْهِ أَثَرُ السَّفَرِ وَلَا يَعْرِفُهُ مِنَّا أَحَدٌ حَتَّى جَلَسَ إِلَى النَّبِيِّ صَلَّى اللَّهُ عَلَيْهِ وَسلم فأسند رُكْبَتَيْهِ إِلَى رُكْبَتَيْهِ وَوَضَعَ كَفَّيْهِ عَلَى فَخْذَيْهِ وَقَالَ: يَا مُحَمَّدُ أَخْبِرْنِي عَنِ الْإِسْلَامِ قَالَ: " الْإِسْلَامُ: أَنْ تَشْهَدَ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَأَنَّ مُحَمَّدًا رَسُولُ اللَّهِ وَتُقِيمَ الصَّلَاةَ وَتُؤْتِيَ الزَّكَاةَ وَتَصُومَ رَمَضَانَ وَتَحُجَّ الْبَيْتَ إِنِ اسْتَطَعْتَ إِلَيْهِ سَبِيلًا ". قَالَ: صَدَقْتَ. فَعَجِبْنَا لَهُ يَسْأَلُهُ وَيُصَدِّقُهُ. قَالَ: فَأَخْبِرْنِي عَنِ الْإِيمَانِ. قَالَ: «أَنْ تُؤْمِنَ بِاللَّهِ وَمَلَائِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ وَالْيَوْمِ الْآخِرِ وَتُؤْمِنَ بِالْقَدَرِ خَيْرِهِ وَشَرِّهِ» . قَالَ صَدَقْتَ. قَالَ: فَأَخْبِرْنِي عَنِ الْإِحْسَانِ. قَالَ: «أَنْ تَعْبُدَ اللَّهَ كَأَنَّكَ تَرَاهُ فَإِنْ لَمْ تَكُنْ تَرَاهُ فَإِنَّهُ يَرَاكَ» . قَالَ: فَأَخْبِرْنِي عَنِ السَّاعَةِ. قَالَ: «مَا المسؤول عَنْهَا بِأَعْلَمَ مِنَ السَّائِلِ» . قَالَ: فَأَخْبِرْنِي عَنْ أَمَارَاتِهَا. قَالَ: «أَنْ تَلِدَ الْأَمَةُ رَبَّتَهَا وَأَنْ تَرَى الْحُفَاةَ الْعُرَاةَ الْعَالَةَ رِعَاءَ الشَّاءِ يَتَطَاوَلُونَ فِي الْبُنْيَانِ» . قَالَ: ثُمَّ انْطَلَقَ فَلَبِثْتُ مَلِيًّا ثُمَّ قَالَ لِي: «يَا عُمَرُ أَتَدْرِي مَنِ السَّائِلُ» ؟ قُلْتُ: اللَّهُ وَرَسُولُهُ أَعْلَمُ. قَالَ: «فَإِنَّهُ جِبْرِيل أَتَاكُم يعلمكم دينكُمْ» .                       
-                               </p>
-                            </div>
-                         </div>
-                      </div>
-                   </div>
-                </div>
-             </div>
-          </div>
-          <!--  2  Hadees in Roman urdu | Hindi | Arabic   -->
-          <!-- 1B Section -->
-          <div class="row">
-             <div class="col">
-                <div class="mb-4 mt-5">
-                   <nav aria-label="breadcrumb">
-                      <ol class="breadcrumb">
-                         <li class="breadcrumb-item"><a href="#">Mishkat al-Masabih</a></li>
-                         <li class="breadcrumb-item active" aria-current="page">1 Faith</li>
-                         <li class="breadcrumb-item active" aria-current="page">1B Section</li>
-                      </ol>
-                   </nav>
-                   <!-- <h3>Chapter - Section 1</h3> -->
-                </div>
-             </div>
-          </div>
-          <!-- 1B Section  -->
-          <!--  3 Hadees in Roman urdu | Hindi | Arabic   -->
-          <div class="col-lg-12">
-             <div class="row mt-3">
-                <!-- Buttons color -->
-                <div class="col-12">
-                   <div class="position-relative border-radius-xl overflow-hidden shadow-lg mb-3">
-                      <div class="container border-bottom">
-                         <div class="row justify-space-between py-2">
-                            <div class="col-lg-6 me-auto">
-                               <div class="nav-wrapper position-relative end-0">
-                                  <ul class="nav nav-pills nav-fill flex-row p-1" role="tablist">
-                                     <li class="nav-item">
-                                        <a class="nav-link mb-0 px-0 py-1 active" data-bs-toggle="tab" href="#roman-urdu-3" role="tab" aria-controls="preview" aria-selected="true">
-                                        <i class="fas fa-desktop text-sm me-2"></i> Roman Urdu
-                                        </a>
-                                     </li>
-                                     <li class="nav-item">
-                                        <a class="nav-link mb-0 px-0 py-1" data-bs-toggle="tab" href="#hindi-3" role="tab" aria-controls="code" aria-selected="false">
-                                        <i class="fas fa-code text-sm me-2"></i> Hindi
-                                        </a>
-                                     </li>
-                                     <li class="nav-item">
-                                        <a class="nav-link mb-0 px-0 py-1" data-bs-toggle="tab" href="#arabic-3" role="tab" aria-controls="code" aria-selected="false">
-                                        <i class="fas fa-code text-sm me-2"></i> Arabic
-                                        </a>
-                                     </li>
-                                  </ul>
-                               </div>
-                            </div>
-                            <div class="col-lg-2">
-                               <p class="lead text-dark pt-1 mb-0">
-                                  <a href="javascript:;">
-                                  <i class="fas fa-copy text-md me-3"></i>
-                                  </a>
-                                  <i class="fas fa-share text-md me-1"></i>
-                               </p>
-                            </div>
-                         </div>
-                      </div>
-                      <div class="tab-content tab-space">
-                         <div class="tab-pane active" id="roman-urdu-3">
-                            <div class="card-body">
-                               <p style="color:black;">
-                                  3. Abu huraira (Razi Allahu anhu) ne is hadees ko kuch alfaz ke ikhtelaf ke sath riwayat kiya hai, is hadees mein hai: “Jab tum nange pao, nange badan, behre, gonge logo ko mulk ke badshah daikhoge, aur ye (wuque qayamat) paanch cheezo mein se hai jinhe sirf Allah hi janta hai, phir aap (ﷺ) ne ayat tilawat farmaye: “Beshaq qayamat ke ilm Allah ke paas hai aur wohi barish nazil karta hai……” 
-                               </p>
-                               <p class="text-xs mb-0">
-                                  Reference: [ Bukhari 50, 4777, Muslim 9]
-                               </p>
-                            </div>
-                         </div>
-                         <div class="tab-pane" id="hindi-3">
-                            <div class="position-relative p-4 pb-2">
-                               <!-- <a class="btn btn-sm bg-gradient-dark position-absolute end-4 mt-3" onclick="copyCode(this);" type="button"><i class="fas fa-copy text-sm me-1"></i> Copy</a> -->
-                               <figure class="highlight">
-                                  <!-- <pre> -->
-                                  <code class="language-html" data-lang="html">  
-                                  [3] अबू हुरैरा रज़ियल्लाहु अन्हु ने इस हदीस को कुछ अल्फाज़ के इख़्तिलाफ़ के साथ रिवायत किया है, इस हदीस में है: “जब तुम नंगे पाँव, नंगे बदन, बहरे, गूंगे लोगो को मुल्क के बादशाह देखोगे और यह (क़यामत का इल्म) पांच चीजों में से है जिन्हें सिर्फ़ अल्लाह ही जानता है। फिर आप सल्लल्लाहु अलैहि वसल्लम ने यह आयत तिलावत फरमाई :’’ बेशक क़यामत का इल्म अल्लाह ही के पास है और वही बारिश नाज़िल करता है...........।
-                                  </code>
-                                  <!-- </pre> -->
-                               </figure>
-                            </div>
-                         </div>
-                         <div class="tab-pane" id="arabic-3">
-                            <div class="card-body">
-                               <p style="color:black;" class="uthmani" dir='rtl'>
-                                  وَرَوَاهُ أَبُو هُرَيْرَة مَعَ اخْتِلَافٍ وَفِيهِ: " وَإِذَا رَأَيْتَ الْحُفَاةَ الْعُرَاةَ الصُّمَّ الْبُكْمَ مُلُوكَ الْأَرْضِ فِي خَمْسٍ لَا يَعْلَمُهُنَّ إِلَّا اللَّهُ. ثُمَّ قَرَأَ: (إِنَّ اللَّهَ عِنْدَهُ عِلْمُ السَّاعَةِ وَيُنَزِّلُ الْغَيْثَ) الْآيَة                     
-                               </p>
-                            </div>
-                         </div>
-                      </div>
-                   </div>
-                </div>
-             </div>
-          </div>
-          <!--  3  Hadees in Roman urdu | Hindi | Arabic   -->
-          <!--  4  Hadees in Roman urdu | Hindi | Arabic   -->
-          <!--  4 End  Hadees in Roman urdu | Hindi | Arabic   -->
-       </div>
+         {% for content in sub.hadithbookcontent_set.all %}
+            <div class="row">
+            <!--  1 Hadees in Roman urdu | Hindi | Arabic   -->
+            <div class="col-lg-12">
+               <div class="row mt-1">
+                  <!-- Buttons color -->
+                  <div class="col-12">
+                     <div class="position-relative border-radius-xl overflow-hidden shadow-lg mb-3">
+                        <div class="container border-bottom">
+                           <div class="row justify-space-between py-2">
+                              <div class="col-lg-6 me-auto">
+                                 <div class="nav-wrapper position-relative end-0">
+                                    <ul class="nav nav-pills nav-fill flex-row p-1" role="tablist">
+                                       <li class="nav-item">
+                                          <a class="nav-link mb-0 px-0 py-1 active" data-bs-toggle="tab" href="#roman-urdu-{{content.id}}" role="tab" aria-controls="preview" aria-selected="true">
+                                          <i class="fas fa-desktop text-sm me-2"></i> Roman Urdu
+                                          </a>
+                                       </li>
+                                       <li class="nav-item">
+                                          <a class="nav-link mb-0 px-0 py-1" data-bs-toggle="tab" href="#hindi-{{content.id}}" role="tab" aria-controls="code" aria-selected="false">
+                                          <i class="fas fa-code text-sm me-2"></i> Hindi
+                                          </a>
+                                       </li>
+                                       <li class="nav-item">
+                                          <a class="nav-link mb-0 px-0 py-1" data-bs-toggle="tab" href="#arabic-{{content.id}}" role="tab" aria-controls="code" aria-selected="false">
+                                          <i class="fas fa-code text-sm me-2"></i> Arabic
+                                          </a>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                              <div class="col-lg-2">
+                                 <p class="lead text-dark pt-1 mb-0">
+                                    
+                                    <a  onclick="copyCodeV2(this,'copy-{{content.id}}');">
+                                    <i class="fas fa-copy text-md me-3"></i>
+                                    </a>
+                                    <i class="fas fa-share text-md me-1"></i>
+                                 </p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="tab-content tab-space">
+                           <div class="tab-pane active" id="roman-urdu-{{content.id}}">
+                              <div class="card-body">
+                                 <p style="color:black;" id="copy-{{content.id}}">
+                                    {{content.roman_urdu_content}}
+                                 </p>
+                                 <p class="text-xs mb-0">
+                                    Reference: {{content.reference_field}}
+                                 </p>
+                              </div>
+                           </div>
+                           <div class="tab-pane" id="hindi-{{content.id}}">
+                              <div class="position-relative p-4 pb-2">
+                                 <!-- <a class="btn btn-sm bg-gradient-dark position-absolute end-4 mt-3" onclick="copyCode(this);" type="button"><i class="fas fa-copy text-sm me-1"></i> Copy</a> -->
+                                 <figure class="highlight">
+                                    <!-- <pre> -->
+                                    <code class="language-html content1" data-lang="html">  
+                                       {{content.hindi_content}}
+                                    </code>
+                                    <!-- </pre> -->
+                                 </figure>
+                              </div>
+                           </div>
+                           <div class="tab-pane" id="arabic-{{content.id}}">
+                              <div class="card-body">
+                                 <p style="color:black;" class="uthmani" dir='rtl'>
+                                    {{content.arabic_content}}
+                                 </p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!--  1  Hadees in Roman urdu | Hindi | Arabic   -->
+
+
+            </div>
+         {% endfor %}
+       {% endfor %}
+       <!-- Hadith Sub Content END  -->
+
     </div>
  </section>
 {% endblock content%}
 
-{% block javascripts %}{% endblock javascripts %}
+{% block javascripts %}
+<script>
+
+   function copyCodeV2(el,class_name) {
+console.log(class_name)
+//TRY 2  Working with classname and id
+  const selection = window.getSelection();
+  const range = document.createRange();
+  const element = document.getElementById(class_name);
+  console.log(element);
+  range.selectNodeContents(element);
+  selection.removeAllRanges();
+  selection.addRange(range);
+  const successful = document.execCommand('copy');
+   window.getSelection().removeAllRanges()
+
+
+
+
+//   const selection = window.getSelection();
+//   const range = document.createRange();
+//   const textToCopy = el.nextElementSibling;
+//   range.selectNodeContents(textToCopy);
+//   selection.removeAllRanges();
+//   selection.addRange(range);
+//   const successful = document.execCommand('copy');
+//   window.getSelection().removeAllRanges()
+
+
+  if (!el.parentElement.querySelector('.alert')) {
+    var alert = document.createElement('div');
+    alert.classList.add('alert', 'alert-success', 'position-absolute', 'top-0', 'border-0', 'text-white', 'w-25', 'end-0', 'start-0', 'mt-2', 'mx-auto', 'py-2');
+    alert.style.transform = 'translate3d(0px, 0px, 0px)'
+    alert.style.opacity = '0';
+    alert.style.transition = '.35s ease';
+    setTimeout(function() {
+      alert.style.transform = 'translate3d(0px, 20px, 0px)';
+      alert.style.setProperty("opacity", "1", "important");
+    }, 100);
+    alert.innerHTML = "Successfully copied!";
+    el.parentElement.appendChild(alert);
+    setTimeout(function() {
+      alert.style.transform = 'translate3d(0px, 0px, 0px)'
+      alert.style.setProperty("opacity", "0", "important");
+    }, 2000);
+    setTimeout(function() {
+      el.parentElement.querySelector('.alert').remove();
+    }, 2500);
+  }
+}
+
+</script>
+{% endblock javascripts %}

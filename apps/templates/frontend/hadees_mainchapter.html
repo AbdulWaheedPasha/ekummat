@@ -47,8 +47,12 @@
                    </tr>
                 </thead>
                 <tbody>
-                   {% for hadith in hadith_main_chapter_list%}
-                   <tr data-url="some_url1" onclick="window.location = 'hadees_subchapter/{{hadith.chapter_no}}/'">
+                   {% for hadith in hadith_main_chapter_list %}
+                   {{hadith.hadithbook.title}}
+
+                     <a href="{% url 'hadith_content' sub_chp=hadith.english_name sr_no=1 %}">test link </a>
+                     
+                     <tr data-url="some_url1" onclick="window.location = '{% url "hadith_subchapter" sub_chp=hadith.english_name %}'">
                       <td>
                          <p class="mb-0 text-lg  text-dark font-weight-bold text-center" >{{hadith.chapter_no}}</p>
                       </td>
@@ -72,16 +76,6 @@
 
 {% block javascripts %}
 <script>
-//    $('table tr').on('click', 'td', function () {
-//       alert("dd");
-//    window.location.href = "{% url 'hadees_subchapter' %}";
-// })
 
-// $(function () {
-//     $('table tr').click(function () {
-//        alert("hi");
-//       //   window.location.href = $(this).data('url');
-//     });
-// })
 </script>
 {% endblock javascripts %}
