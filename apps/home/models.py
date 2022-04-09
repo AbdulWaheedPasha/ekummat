@@ -81,7 +81,7 @@ class HadithBookMainChapter(models.Model):
     def __str__(self):
         return self.english_name
 
-#Mishkatul Masabeeh -> #Faith -> #sub content
+#Mishkatul Masabeeh -> #Faith -> #sub chapters
 class HadithBookSubChapter(models.Model):
     hadith_book_main_chapter = models.ForeignKey(HadithBookMainChapter,on_delete=models.SET_NULL,null=True)
     sub_chapter_name = models.CharField(max_length=200)
@@ -96,7 +96,7 @@ HADITHGRADE = [
     ("Hasan","Hasan"),
     ("Zaeef","Zaeef"),
 ]
-
+#Mishkatul Masabeeh -> #Faith -> #sub chapters -> content
 class HadithBookContent(models.Model):
     hadith_book_sub_chapter = models.ForeignKey(HadithBookSubChapter,on_delete=models.SET_NULL,null=True)
     sr_no = models.IntegerField(max_length=3)

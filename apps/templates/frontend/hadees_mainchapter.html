@@ -26,8 +26,8 @@
              <div class="mb-4 ">
                 <nav aria-label="breadcrumb">
                    <ol class="breadcrumb">
-                      <li class="breadcrumb-item"><a href="#">Home</a></li>
-                      <li class="breadcrumb-item active" aria-current="page">Mishkat al-Masabih</li>
+                      <li class="breadcrumb-item"><a href="#">Mishkat al-Masabih</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Chapter List</li>
                    </ol>
                 </nav>
                 <!-- <h3>Chapter - Section 1</h3> -->
@@ -48,11 +48,8 @@
                 </thead>
                 <tbody>
                    {% for hadith in hadith_main_chapter_list %}
-                   {{hadith.hadithbook.title}}
-
-                     <a href="{% url 'hadith_content' sub_chp=hadith.english_name sr_no=1 %}">test link </a>
                      
-                     <tr data-url="some_url1" onclick="window.location = '{% url "hadith_subchapter" sub_chp=hadith.english_name %}'">
+                     <tr data-url="some_url1" onclick="window.location = '{% url "hadith_subchapter" main_chp=hadith.english_name %}'">
                       <td>
                          <p class="mb-0 text-lg  text-dark font-weight-bold text-center" >{{hadith.chapter_no}}</p>
                       </td>

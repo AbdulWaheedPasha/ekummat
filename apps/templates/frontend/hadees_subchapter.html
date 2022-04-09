@@ -1,6 +1,6 @@
 {% extends 'frontend/base.html' %}
 
-{% block title %} Dashboard {% endblock title %}
+{% block title %}  {% endblock title %}
 
 <!-- Specific CSS goes HERE -->
 {% block stylesheets %}{% endblock stylesheets %}
@@ -58,11 +58,8 @@
                               </div>
                               <div class="col-lg-2">
                                  <p class="lead text-dark pt-1 mb-0">
-                                    
-                                    <a  onclick="copyCodeV2(this,'copy-{{content.id}}');">
-                                    <i class="fas fa-copy text-md me-3"></i>
-                                    </a>
-                                    <i class="fas fa-share text-md me-1"></i>
+                                    <a  onclick="copyCodeV2(this,'copy-{{content.id}}');"><i class="fas fa-copy text-md me-3"></i></a>
+                                    <a href="{% url 'hadith_content' main_chp=sub.hadith_book_main_chapter sub_chp_id=sub.id sr_no=content.sr_no %}">{{sub.hadith_book_main_chapter}}/{{sub.id}}/{{content.id}}<i class="fas fa-share text-md me-1"></i></a>
                                  </p>
                               </div>
                            </div>

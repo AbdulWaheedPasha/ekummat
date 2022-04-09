@@ -49,6 +49,7 @@ def pdf_book_list(request):
     html_template = loader.get_template('frontend/pdf_book_list.html')
     return HttpResponse(html_template.render(context,request))
 
+# mishkat-al-masabih/
 def hadith_mainchapter(request):
     hadith_main_chapter_list = HadithBookMainChapter.objects.filter(hadithbook_id=1)
     print(hadith_main_chapter_list)
@@ -56,17 +57,22 @@ def hadith_mainchapter(request):
     html_template = loader.get_template('frontend/hadees_mainchapter.html')
     return HttpResponse(html_template.render(context,request))
 
-def hadith_subchapter(request,sub_chp):
-    print(sub_chp)
-    hadith_sub_chapter = HadithBookSubChapter.objects.filter(hadith_book_main_chapter_id=1)
-    # print(hadith_sub_chapter.hadith_book_main_chapter)
+# mishkat-al-masabih/faith/ XX
+# mishkat-al-masabih/id/ 
+def hadith_subchapter(request,main_chp):
+    obj = HadithBookMainChapter.objects.filter(english_name=main_chp).first()
+    hadith_sub_chapter = HadithBookSubChapter.objects.filter(hadith_book_main_chapter_id=obj.id)
+
     context = {"hadith_sub_chapter":hadith_sub_chapter}
     html_template = loader.get_template('frontend/hadees_subchapter.html')
     return HttpResponse(html_template.render(context,request))
 
-def hadith_content(request,sub_chp,sr_no):
-    print("share_hadith", sub_chp,sr_no)
-    content = HadithBookContent.objects.filter(hadith_book_sub_chapter=sub_chp,sr_no=sr_no).first()
+# mishkat-al-masabih/faith/
+def hadith_content(request,main_chp,sub_chp_id,sr_no):
+    print("share_hadith",main_chp)
+    # main_chp = HadithBookMainChapter.objects.filter(english_name=main_chp).first()
+    content = HadithBookContent.objects.filter(hadith_book_sub_chapter_id=sub_chp_id,sr_no=sr_no).first()
+    
     print(content)
     pass
 
