@@ -11,6 +11,8 @@ from venv import create
 from django.db import models
 from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
+from django.urls import reverse
+
 from uuid import uuid4
 
 def generateUUID():
@@ -56,6 +58,9 @@ class QuranChapterOld(models.Model):
     def __str__(self):
         return str(self.chapter_no)
 
+    def get_absolute_url(self):
+        return reverse("quran_get_chapter", kwargs={"chapter_id":self.id})
+
 
 #Mishkatul Masabeeh
 class HadithBook(models.Model):
@@ -71,7 +76,7 @@ class HadithBook(models.Model):
         super().save(*args, **kwargs)
 
 
-#Mishkatul Masabeeh #Faith (main chapter heading)
+#Mishkatul Masabeeh #Faith (main chapter)
 class HadithBookMainChapter(models.Model):
     hadithbook = models.ForeignKey(HadithBook,on_delete=models.SET_NULL,null=True)
     chapter_no = models.IntegerField(max_length=3)
@@ -81,6 +86,10 @@ class HadithBookMainChapter(models.Model):
     def __str__(self):
         return self.english_name
 
+    def get_absolute_url(self):
+        return reverse("hadith_subchapter", kwargs={"main_chp":self.english_name})
+
+
 #Mishkatul Masabeeh -> #Faith -> #sub chapters
 class HadithBookSubChapter(models.Model):
     hadith_book_main_chapter = models.ForeignKey(HadithBookMainChapter,on_delete=models.SET_NULL,null=True)
@@ -89,6 +98,8 @@ class HadithBookSubChapter(models.Model):
     def __str__(self):
         return f"{self.hadith_book_main_chapter} - {self.sub_chapter_name}"
 
+    def get_absolute_url(self):
+        return reverse("hadith_subchapter", kwargs={"main_chp":self.hadith_book_main_chapter.english_name.english_name})
 
 HADITHGRADE = [
     ("Muttafaqun 'alayh","Muttafaqun 'alayh"),
@@ -96,6 +107,9 @@ HADITHGRADE = [
     ("Hasan","Hasan"),
     ("Zaeef","Zaeef"),
 ]
+
+
+
 #Mishkatul Masabeeh -> #Faith -> #sub chapters -> content
 class HadithBookContent(models.Model):
     hadith_book_sub_chapter = models.ForeignKey(HadithBookSubChapter,on_delete=models.SET_NULL,null=True)
@@ -109,3 +123,10 @@ class HadithBookContent(models.Model):
     def __str__(self):
         return f"{self.hadith_book_sub_chapter}"
 
+    def get_absolute_url(self):
+        print("self.hadith_book_sub_chapter.id", self.hadith_book_sub_chapter.sub_chapter_name)
+        print("main chapter", self.hadith_book_sub_chapter.hadith_book_main_chapter.hadithbook.title)
+        return reverse("t_hadith_content", kwargs={"main_chp":self.hadith_book_sub_chapter.hadith_book_main_chapter.english_name,"id_no":self.id})
+
+        # return reverse("hadith_content", kwargs={"main_chp":self.hadith_book_sub_chapter.hadith_book_main_chapter.hadithbook.title,"sub_chp_id": self.hadith_book_sub_chapter.id,"sr_no":self.sr_no})
+        # return f"mishkat-al-masabih/Faith/1/1/"

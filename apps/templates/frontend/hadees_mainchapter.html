@@ -49,7 +49,7 @@
                 <tbody>
                    {% for hadith in hadith_main_chapter_list %}
                      
-                     <tr data-url="some_url1" onclick="window.location = '{% url "hadith_subchapter" main_chp=hadith.english_name %}'">
+                     <tr data-url="some_url1" onclick="window.location = '{{hadith.get_absolute_url}}'">
                       <td>
                          <p class="mb-0 text-lg  text-dark font-weight-bold text-center" >{{hadith.chapter_no}}</p>
                       </td>

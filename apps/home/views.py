@@ -60,6 +60,7 @@ def hadith_mainchapter(request):
 # mishkat-al-masabih/faith/ XX
 # mishkat-al-masabih/id/ 
 def hadith_subchapter(request,main_chp):
+    print("$$$ main_chp $$$", main_chp)
     obj = HadithBookMainChapter.objects.filter(english_name=main_chp).first()
     hadith_sub_chapter = HadithBookSubChapter.objects.filter(hadith_book_main_chapter_id=obj.id)
 
@@ -69,12 +70,39 @@ def hadith_subchapter(request,main_chp):
 
 # mishkat-al-masabih/faith/
 def hadith_content(request,main_chp,sub_chp_id,sr_no):
-    print("share_hadith",main_chp)
-    # main_chp = HadithBookMainChapter.objects.filter(english_name=main_chp).first()
-    content = HadithBookContent.objects.filter(hadith_book_sub_chapter_id=sub_chp_id,sr_no=sr_no).first()
-    
-    print(content)
-    pass
+    try:
+        print("share_hadith",main_chp)
+        # main_chp = HadithBookMainChapter.objects.filter(english_name=main_chp).first()
+        hadith_sub_chapter = HadithBookContent.objects.filter(hadith_book_sub_chapter_id=sub_chp_id,sr_no=sr_no).first()
+        print("sub_chapter_name",hadith_sub_chapter.hadith_book_sub_chapter)
+        context = {"isfound":True,"content":hadith_sub_chapter,"hadith_book_main_chapter":main_chp,"sub_chapter_name":hadith_sub_chapter.hadith_book_sub_chapter.sub_chapter_name}
+        html_template = loader.get_template('frontend/hadith_single_content.html')
+        return HttpResponse(html_template.render(context,request))
+    except:
+
+        context = {"isfound":False}
+        html_template = loader.get_template('frontend/hadith_single_content.html')
+        return HttpResponse(html_template.render(context,request))
+
+def t_hadith_content(request,main_chp,id_no):
+    print("****sr_no",id_no,main_chp)
+    try:
+        print("share_hadith",main_chp)
+        # main_chp = HadithBookMainChapter.objects.filter(english_name=main_chp).first()
+        hadith_sub_chapter = HadithBookContent.objects.filter(id=id_no).first()
+        print("sub_chapter_name",hadith_sub_chapter.hadith_book_sub_chapter)
+        context = {"isfound":True,"content":hadith_sub_chapter,"hadith_book_main_chapter":main_chp,"sub_chapter_name":hadith_sub_chapter.hadith_book_sub_chapter.sub_chapter_name}
+        html_template = loader.get_template('frontend/hadith_single_content.html')
+        return HttpResponse(html_template.render(context,request))
+    except:
+
+        context = {"isfound":False}
+        html_template = loader.get_template('frontend/hadith_single_content.html')
+        return HttpResponse(html_template.render(context,request))
+
+
+
+
 
 
 @login_required(login_url="/login/")

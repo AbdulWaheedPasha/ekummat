@@ -8,13 +8,20 @@ from apps.home import views
 
 urlpatterns = [
     #Home page
+    re_path(r'^mishkat-al-masabih/(?P<main_chp>\w+)/(?P<id_no>\d+)/$', views.t_hadith_content,name='t_hadith_content'),
+
+    # Quran Start 
     path('',views.quran_list_chapter, name='quran_list_chapter'),
     path('<int:chapter_id>/',views.quran_get_chapter, name='quran_get_chapter'),
+    # Quran  End 
 
+    # mishkat Start
     path('mishkat-al-masabih/',views.hadith_mainchapter, name='mishkat-al-masabih'),
     re_path(r'^mishkat-al-masabih/(?P<main_chp>\w+)/$', views.hadith_subchapter,name='hadith_subchapter'),
     # re_path(r'^mishkat-al-masabih/(?P<main_chp>\w+)/(?P<sr_no>\d+)/$', views.hadith_content,name='hadith_content'),
     re_path(r'^mishkat-al-masabih/(?P<main_chp>\w+)/(?P<sub_chp_id>\d+)/(?P<sr_no>\d+)/$', views.hadith_content,name='hadith_content'),
+    # mishkat End
+    
 
 # <a href="{% url 'hadith_content' sub_chp=hadith.english_name sr_no=1 %}">test link </a>
 
