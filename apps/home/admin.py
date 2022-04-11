@@ -44,6 +44,7 @@ class HadithBookContentAdmin(admin.ModelAdmin):
 
 class BookPDFAdmin(admin.StackedInline):
     model = BookPDF
+    list_filter = ("book",)
 
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
@@ -51,4 +52,5 @@ class BookAdmin(admin.ModelAdmin):
 
 @admin.register(BookPDF)
 class BookPDFAdmin(admin.ModelAdmin):
-    pass
+    list_display = ("title","external_file_url",)
+    list_filter = ("book",)
