@@ -18,7 +18,7 @@ SECRET_KEY = config('SECRET_KEY', default='S#perS3crEt_1122')
 DEBUG = config('DEBUG', default=True, cast=bool)
 
 # load production server from .env
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'www.ekummat.com',config('SERVER', default='127.0.0.1')]
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'www.ekummat.com','ekummat.com',config('SERVER', default='127.0.0.1')]
 
 # Application definition
 
@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     #3rd Party App
     'tinymce',
     'django_social_share',
+    'smart_selects',
 ]
 
 MIDDLEWARE = [
@@ -73,6 +74,9 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# JQUERY_URL = True
+USE_DJANGO_JQUERY = True
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -80,15 +84,15 @@ DATABASES = {
     }
 }
 
-DATABASES = {
-'default': {
-'ENGINE': 'django.db.backends.mysql',
-'NAME': 'awaheedp$default',
-'USER': 'awaheedp',
-'PASSWORD': 'cypna@123',
-'HOST': 'awaheedp.mysql.pythonanywhere-services.com',
-}
-}
+# DATABASES = {
+# 'default': {
+# 'ENGINE': 'django.db.backends.mysql',
+# 'NAME': 'awaheedp$default',
+# 'USER': 'awaheedp',
+# 'PASSWORD': 'cypna@123',
+# 'HOST': 'awaheedp.mysql.pythonanywhere-services.com',
+# }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -135,5 +139,7 @@ STATICFILES_DIRS = (
 )
 
 
+MEDIA_ROOT = os.path.join(CORE_DIR, 'media')
+MEDIA_URL = '/media/'
 #############################################################
 #############################################################

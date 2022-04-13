@@ -28,7 +28,7 @@ urlpatterns = [
     path('pdf_book_list',views.pdf_book_list, name='pdf_book_list'),
 
 
-
+    
     # The Login page
     path('login', views.index, name='home'),
 

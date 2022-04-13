@@ -1,3 +1,0 @@
-1) Media file configation and remove older media file.
-2) run for-loop in frontend for book model
-3) discuss about the Quran future plan and new hosting services. 

@@ -6,7 +6,15 @@ Copyright (c) 2019 - present AppSeed.us
 from django.contrib import admin
 
 # Register your models here.
-from .models import Book, BookPDF, QuranChapterOld,HadithBook,HadithBookMainChapter,HadithBookSubChapter,HadithBookContent
+from .models import Book, BookPDF, QuranChapterOld,HadithBook,HadithBookMainChapter,HadithBookSubChapter,HadithBookContent,HadithBookExcelFile
+
+@admin.register(HadithBookExcelFile)
+class HadithBookExcelFileAdmin(admin.ModelAdmin):
+    pass
+    # list_display = ("file_url","Hadithbook",)
+    # list_filter = ("Hadithbook",)
+    # search_fields = ()
+
 
 @admin.register(HadithBook)
 class HadithBookAdmin(admin.ModelAdmin):
@@ -37,7 +45,7 @@ class QuranChapterOldAdmin(admin.ModelAdmin):
 
 @admin.register(HadithBookContent)
 class HadithBookContentAdmin(admin.ModelAdmin):
-    list_display = ("hadith_book_sub_chapter",)
+    list_display = ("hadith_book_sub_chapter","sr_no")
     list_filter = ("hadith_book_sub_chapter",)
     search_fields = ()
 

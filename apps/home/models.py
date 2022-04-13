@@ -13,6 +13,8 @@ from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
 from django.urls import reverse
 
+
+from .views import excel_upload_operations
 from uuid import uuid4
 
 def generateUUID():
@@ -23,9 +25,14 @@ from tinymce.models import HTMLField
 
 # Create your models here.
 def BookPDF_upload_location(instance, filename):
-    model_name = instance.book.title.lower().replace(" ", "-")
+    model_name = instance.hadith_book_main_chapter.title.lower().replace(" ", "-")
     file_name = filename.lower().replace(" ", "-")
     return "book/{}/{}".format(model_name, file_name)
+
+def hadith_excel_upload_location(instance, filename):
+    model_name = instance.hadith_book_main_chapter.english_name.lower().replace(" ", "-")
+    file_name = filename.lower().replace(" ", "-")
+    return "Hadith/{}/{}".format(model_name, file_name)
 
 
 class Book(models.Model):
@@ -113,12 +120,12 @@ HADITHGRADE = [
 #Mishkatul Masabeeh -> #Faith -> #sub chapters -> content
 class HadithBookContent(models.Model):
     hadith_book_sub_chapter = models.ForeignKey(HadithBookSubChapter,on_delete=models.SET_NULL,null=True)
-    sr_no = models.IntegerField(max_length=3)
-    arabic_content = models.TextField()
-    roman_urdu_content = models.TextField()
-    hindi_content = models.TextField()
-    reference_field = models.TextField()
-    grade = models.CharField(choices=HADITHGRADE,default="Sahih", max_length=50)
+    sr_no = models.IntegerField(max_length=4,null=True,blank=True)
+    arabic_content = models.TextField(null=True,blank=True)
+    roman_urdu_content = models.TextField(null=True,blank=True)
+    hindi_content = models.TextField(null=True,blank=True)
+    reference_field = models.TextField(null=True,blank=True)
+    grade = models.CharField(choices=HADITHGRADE,default="Sahih", max_length=50,null=True,blank=True)
 
     def __str__(self):
         return f"{self.hadith_book_sub_chapter}"
@@ -130,3 +137,38 @@ class HadithBookContent(models.Model):
 
         # return reverse("hadith_content", kwargs={"main_chp":self.hadith_book_sub_chapter.hadith_book_main_chapter.hadithbook.title,"sub_chp_id": self.hadith_book_sub_chapter.id,"sr_no":self.sr_no})
         # return f"mishkat-al-masabih/Faith/1/1/"
+
+from smart_selects.db_fields import ChainedForeignKey
+
+class HadithBookExcelFile(models.Model):
+    file_url = models.FileField(upload_to=hadith_excel_upload_location,null=False,blank=False)
+    Hadithbook = models.ForeignKey(HadithBook,on_delete=models.SET_NULL,null=True,related_name="Hadithbook_excel")
+    hadith_book_main_chapter = ChainedForeignKey(
+        HadithBookMainChapter,
+        chained_field="Hadithbook",
+        chained_model_field="hadithbook",
+        show_all=False,
+        auto_choose=True,
+        sort=True,
+        related_name="hadith_book_main_chapter_excel")
+
+    Hadith_book_sub_chapter = ChainedForeignKey(
+        HadithBookSubChapter,
+        chained_field="hadith_book_main_chapter",
+        chained_model_field="hadith_book_main_chapter",
+        show_all=False,
+        auto_choose=True,
+        sort=True)
+
+    def __str__(self):
+        return str(self.Hadithbook)
+
+    def save(self, *args, **kwargs):
+        super(HadithBookExcelFile, self).save(*args, **kwargs)
+        filename = self.file_url
+        hadith_book_sub_chapter = self.Hadith_book_sub_chapter
+        excel_upload_operations(filename,hadith_book_sub_chapter)
+
+        # data,temp_pre_tc_obj = excel_upload_operations(filename,hadith_book_sub_chapter)
+        # print(data)
+        # print(temp_pre_tc_obj)
