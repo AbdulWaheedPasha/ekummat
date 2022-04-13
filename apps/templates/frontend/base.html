@@ -37,7 +37,7 @@
          <div class="col-12">
             <nav class="navbar navbar-expand-lg  blur blur-rounded top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
                <div class="container-fluid">
-                  <a class="navbar-brand font-weight-bolder ms-sm-3" href="#" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
+                  <a class="navbar-brand font-weight-bolder ms-sm-3" href="{% url 'quran_list_chapter' %}" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_self">
                      <!-- <p class="d-inline text-lg z-index-1 font-weight-bold" >Ekummat</p> -->
                      <h3 class="text-gradient text-primary">Ekummat</h3>
                   </a>
@@ -56,7 +56,7 @@
                            </a>
                         </li>
                         <!-- <li class="nav-item dropdown dropdown-hover mx-2">
-                           <a class="nav-link nav-link-icon me-2" href="#" target="_blank">
+                           <a class="nav-link nav-link-icon me-2" href="#" target="_self">
                              <p class="d-inline text-lg z-index-1 font-weight-bold" >About Us</p>
                            </a>
                            </li> -->
@@ -167,27 +167,27 @@
             <h6 class="mt-3 mb-2 opacity-8">Social</h6>
             <ul class="d-flex flex-row ms-n3 nav">
               <li class="nav-item">
-                <a class="nav-link pe-1" href="#" target="_blank">
+                <a class="nav-link pe-1" href="#" target="_self">
                   <i class="fab fa-facebook text-lg opacity-8"></i>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link pe-1" href="#" target="_blank">
+                <a class="nav-link pe-1" href="#" target="_self">
                   <i class="fab fa-twitter text-lg opacity-8"></i>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link pe-1" href="#" target="_blank">
+                <a class="nav-link pe-1" href="#" target="_self">
                   <i class="fab fa-dribbble text-lg opacity-8"></i>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link pe-1" href="#" target="_blank">
+                <a class="nav-link pe-1" href="#" target="_self">
                   <i class="fab fa-github text-lg opacity-8"></i>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link pe-1" href="#" target="_blank">
+                <a class="nav-link pe-1" href="#" target="_self">
                   <i class="fab fa-youtube text-lg opacity-8"></i>
                 </a>
               </li>
@@ -199,18 +199,23 @@
             <h6 class="text-gradient text-primary text-sm">Quran</h6>
             <ul class="flex-column ms-n3 nav">
               <li class="nav-item">
-                <a class="nav-link " href="#" target="_blank">
+                <a class="nav-link " href="/18/" target="_self">
                   Surah Al-Kahf (الكهف)
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="#" target="_blank">
-                  Ayat Al-Kursi (آية الكرسي)
+                <a class="nav-link " href="/67/" target="_self">
+                  Al Mulk (الملك)
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="#" target="_blank">
+                <a class="nav-link " href="/36/" target="_self">
                   Surah Yaseen (يس)
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="/55/" target="_self">
+                  Ar-Rahman (الرحمن)
                 </a>
               </li>
             </ul>
@@ -221,27 +226,27 @@
             <h6 class="text-gradient text-primary text-sm">Resources</h6>
             <ul class="flex-column ms-n3 nav">
               <li class="nav-item">
-                <a class="nav-link" href="#" target="_blank">
+                <a class="nav-link" href="{% url 'mishkat-al-masabih' %}" target="_self">
                   Mishkat al-Masabih
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" target="_blank">
+                <a class="nav-link" href="{% url 'pdf_book_list' %}" target="_self">
                   Sahih al-Bukhari PDF
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" target="_blank">
+                <a class="nav-link" href="{% url 'pdf_book_list' %}" target="_self">
                   Sahih Muslim PDF
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" target="_blank">
+                <a class="nav-link" href="{% url 'pdf_book_list' %}" target="_self">
                   Jami Al Tirmidhi PDF
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" target="_blank">
+                <a class="nav-link" href="{% url 'pdf_book_list' %}" target="_self">
                   Sunan Abi Dawud PDF
                 </a>
               </li>
@@ -256,12 +261,12 @@
             <h6 class="text-gradient text-primary text-sm">Help & Support</h6>
             <ul class="flex-column ms-n3 nav">
               <li class="nav-item">
-                <a class="nav-link" href="#" target="_blank"  data-bs-toggle="modal" data-bs-target="#contactUsModel">
+                <a class="nav-link" href="#" target="_self"  data-bs-toggle="modal" data-bs-target="#contactUsModel">
                   Contact Us
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" target="_blank">
+                <a class="nav-link" href="#" target="_self" data-bs-toggle="modal" data-bs-target="#contactUsModel">
                   Suggestions
                 </a>
               </li>
@@ -273,7 +278,7 @@
             <h6 class="text-gradient text-primary text-sm">About Us</h6>
             <ul class="flex-column ms-n3 nav">
               <li class="nav-item">
-                <a class="nav-link" href="#" target="_blank" data-bs-toggle="modal" data-bs-target="#about-us">
+                <a class="nav-link" href="#" target="_self" data-bs-toggle="modal" data-bs-target="#about-us">
                   Overview
                 </a>
               </li>
@@ -286,7 +291,7 @@
             <p class="my-4 text-sm">
               All rights reserved. Copyright © <script>
                 document.write(new Date().getFullYear())
-              </script> Develope and Design by <a href="https://www.facebook.com/PashaAbdulWaheed" target="_blank">Abdul Waheed</a>.
+              </script> Develope and Design by <a href="https://www.facebook.com/PashaAbdulWaheed" target="_self">Abdul Waheed</a>.
             </p>
           </div>
         </div>

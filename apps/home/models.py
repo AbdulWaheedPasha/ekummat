@@ -14,7 +14,8 @@ from django.template.defaultfilters import slugify
 from django.urls import reverse
 
 
-from .views import excel_upload_operations
+# from .views import excel_upload_operations
+
 from uuid import uuid4
 
 def generateUUID():
@@ -172,3 +173,83 @@ class HadithBookExcelFile(models.Model):
         # data,temp_pre_tc_obj = excel_upload_operations(filename,hadith_book_sub_chapter)
         # print(data)
         # print(temp_pre_tc_obj)
+#excel
+from openpyxl import load_workbook
+from openpyxl.worksheet.datavalidation import DataValidation
+import os
+
+def excel_upload_operations(filename,hadith_book_sub_chapter):
+    print("filename:",filename)
+    temp_pre_tc_obj = []
+    data = dict()
+    data['total_records_added'] = 0
+    data['excel_max_row'] = 0
+    data['excel_max_col'] = 0
+
+    wb = load_workbook(filename)
+    sheet = wb.worksheets[0]
+    data['excel_max_row'] = row = sheet.max_row
+    data['excel_max_col'] = col = sheet.max_column
+
+    print("ROW :",data['excel_max_row'])
+    print("COL :",data['excel_max_col'])
+
+
+    listtab = []
+
+    for r in range(1,row+1):
+        listtab.append([])
+
+
+
+    # retrive Data from Excel 
+    for r in range(1,row+1):
+        for c in range(1,col+1):
+            e = sheet.cell(row=r,column=c)
+            listtab[r-1].append(e.value)
+
+    from .models import HadithBookContent
+    total_none = 0
+    total_h = 0
+    r = 1
+    print("listtab", listtab)
+    print("listtab[r][0]", listtab[r][0])
+    print("listtab[r-1][0]", listtab[r-1][0])
+    for r in range(1,row):
+        print(r)
+        sr_no = listtab[r][0]
+        arabic_content = listtab[r][1]
+        roman_urdu_content = listtab[r][2]
+        hindi_content = listtab[r][3]
+        reference_field = listtab[r][4]
+        grade = listtab[r][5]
+        # print(sr_no,arabic_content,roman_urdu_content,hindi_content,reference_field,grade)
+        
+
+  
+        if listtab[r][0] is None or listtab[r][0] ==  " ":
+            total_none+=1
+            # print(listtab[r-1][0])
+
+        else:
+            total_h+=1
+            # print("else ", listtab[r-1][0])
+            # print(sr_no,type(sr_no))
+            # print(arabic_content, type(arabic_content))
+
+
+            pre_tc_instance = HadithBookContent.objects.create(
+            hadith_book_sub_chapter = hadith_book_sub_chapter,
+            sr_no=listtab[r][0],
+            arabic_content=listtab[r][1],
+            roman_urdu_content=listtab[r][2],
+            hindi_content=listtab[r][3],
+            reference_field=listtab[r][4],
+            grade=listtab[r][5],
+            )
+    print("total_none:",total_none,"total_h:",total_h)
+        # if pre_tc_instance:
+        #     data['total_records_added'] +=1 
+        #     temp_pre_tc_obj.append(pre_tc_instance)
+    return True
+    return data,temp_pre_tc_obj
