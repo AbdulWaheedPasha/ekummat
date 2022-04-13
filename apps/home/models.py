@@ -216,7 +216,6 @@ def excel_upload_operations(filename,hadith_book_sub_chapter):
     print("listtab[r][0]", listtab[r][0])
     print("listtab[r-1][0]", listtab[r-1][0])
     for r in range(1,row):
-        print(r)
         sr_no = listtab[r][0]
         arabic_content = listtab[r][1]
         roman_urdu_content = listtab[r][2]
