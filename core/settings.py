@@ -84,15 +84,15 @@ DATABASES = {
     }
 }
 
-# DATABASES = {
-# 'default': {
-# 'ENGINE': 'django.db.backends.mysql',
-# 'NAME': 'awaheedp$default',
-# 'USER': 'awaheedp',
-# 'PASSWORD': 'cypna@123',
-# 'HOST': 'awaheedp.mysql.pythonanywhere-services.com',
-# }
-# }
+DATABASES = {
+'default': {
+'ENGINE': 'django.db.backends.mysql',
+'NAME': 'awaheedp$default',
+'USER': 'awaheedp',
+'PASSWORD': 'cypna@123',
+'HOST': 'awaheedp.mysql.pythonanywhere-services.com',
+}
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
