@@ -57,6 +57,8 @@ class BookPDFAdmin(admin.StackedInline):
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
     inlines = [BookPDFAdmin]
+    list_display = ("title","volumes","category",)
+    list_filter = ("category",)
 
 @admin.register(BookPDF)
 class BookPDFAdmin(admin.ModelAdmin):

@@ -47,11 +47,24 @@ def quran_get_chapter(request,chapter_id):
     return HttpResponse(html_template.render(context, request))
 
 
-def pdf_book_list(request):
-    book_list = Book.objects.prefetch_related('bookpdf_set').all()
+def pdf_hadith_list(request):
+    book_list = Book.objects.prefetch_related('bookpdf_set').all().filter(category='hadith')
     context = {"book_list":book_list}
     html_template = loader.get_template('frontend/pdf_book_list.html')
     return HttpResponse(html_template.render(context,request))
+
+def pdf_dua_list(request):
+    book_list = Book.objects.prefetch_related('bookpdf_set').all().filter(category='dua')
+    context = {"book_list":book_list}
+    html_template = loader.get_template('frontend/pdf_book_list.html')
+    return HttpResponse(html_template.render(context,request))
+
+def pdf_quran_list(request):
+    book_list = Book.objects.prefetch_related('bookpdf_set').all().filter(category='quran')
+    context = {"book_list":book_list}
+    html_template = loader.get_template('frontend/pdf_book_list.html')
+    return HttpResponse(html_template.render(context,request))
+
 
 # mishkat-al-masabih/
 def hadith_mainchapter(request):

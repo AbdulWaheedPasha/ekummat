@@ -23,11 +23,9 @@ urlpatterns = [
     # mishkat End
     
 
-# <a href="{% url 'hadith_content' sub_chp=hadith.english_name sr_no=1 %}">test link </a>
-
-    path('pdf_book_list',views.pdf_book_list, name='pdf_book_list'),
-
-
+    path('pdf_hadith_list',views.pdf_hadith_list, name='pdf_hadith_list'),
+    path('pdf_dua_list',views.pdf_dua_list, name='pdf_dua_list'),
+    path('pdf_quran_list',views.pdf_quran_list, name='pdf_quran_list'),
     
     # The Login page
     path('login', views.index, name='home'),

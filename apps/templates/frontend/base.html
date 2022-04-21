@@ -55,7 +55,7 @@
                   </span>
                   </button>
                   <div class="collapse navbar-collapse pt-3 pb-2 py-lg-0 w-100" id="navigation">
-                     <ul class="navbar-nav navbar-nav-hover ms-lg-10 ps-lg-5 w-100">
+                     <ul class="navbar-nav navbar-nav-hover ms-lg-5 ps-lg-5 w-100">
                         <li class="nav-item dropdown dropdown-hover mx-2">
                            <a class="nav-link nav-link-icon me-2" href="{% url 'quran_list_chapter' %}" target="_self">
                               <p class="d-inline text-lg z-index-1 font-weight-bold" >Home</p>
@@ -72,8 +72,19 @@
                            </a>
                         </li>
                         <li class="nav-item dropdown dropdown-hover mx-2">
-                           <a class="nav-link nav-link-icon me-2" href="{% url 'pdf_book_list' %}" target="_self">
-                              <p class="d-inline text-lg z-index-1 font-weight-bold" >PDF Books</p>
+                          <a class="nav-link nav-link-icon me-2" href="{% url 'pdf_quran_list' %}" target="_self">
+                             <p class="d-inline text-lg z-index-1 font-weight-bold" >Quran</p>
+                          </a>
+                       </li>
+                       <li class="nav-item dropdown dropdown-hover mx-2">
+                        <a class="nav-link nav-link-icon me-2" href="{% url 'pdf_hadith_list' %}" target="_self">
+                           <p class="d-inline text-lg z-index-1 font-weight-bold" > Hadith</p>
+                        </a>
+                     </li>
+
+                        <li class="nav-item dropdown dropdown-hover mx-2">
+                           <a class="nav-link nav-link-icon me-2" href="{% url 'pdf_dua_list' %}" target="_self">
+                              <p class="d-inline text-lg z-index-1 font-weight-bold" > Dua</p>
                            </a>
                         </li>
                         <li class="nav-item my-auto ms-3 ms-lg-0">
@@ -237,22 +248,22 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'pdf_book_list' %}" target="_self">
+                <a class="nav-link" href="{% url 'pdf_hadith_list' %}" target="_self">
                   Sahih al-Bukhari PDF
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'pdf_book_list' %}" target="_self">
+                <a class="nav-link" href="{% url 'pdf_hadith_list' %}" target="_self">
                   Sahih Muslim PDF
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'pdf_book_list' %}" target="_self">
+                <a class="nav-link" href="{% url 'pdf_hadith_list' %}" target="_self">
                   Jami Al Tirmidhi PDF
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'pdf_book_list' %}" target="_self">
+                <a class="nav-link" href="{% url 'pdf_hadith_list' %}" target="_self">
                   Sunan Abi Dawud PDF
                 </a>
               </li>

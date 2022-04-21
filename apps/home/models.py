@@ -35,12 +35,17 @@ def hadith_excel_upload_location(instance, filename):
     file_name = filename.lower().replace(" ", "-")
     return "Hadith/{}/{}".format(model_name, file_name)
 
+PDFBOOK_CATEGORY = [
+    ('quran','quran'),
+    ('hadith','hadith'),
+    ('dua','dua'),
+    ]
 
 class Book(models.Model):
     title = models.TextField(blank=False,null=False)
     volumes = models.TextField(blank=True,null=True)
     description = models.TextField(blank=True,null=True)
-    
+    category = models.CharField(choices=PDFBOOK_CATEGORY,default='hadith',null=False,blank=False,max_length=100)
     def __str__(self):
         return self.title
 
