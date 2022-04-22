@@ -55,7 +55,7 @@ def pdf_hadith_list(request):
 
 def pdf_dua_list(request):
     book_list = Book.objects.prefetch_related('bookpdf_set').all().filter(category='dua')
-    context = {"book_list":book_list}
+    context = {"book_list":book_list,"category":"dua"}
     html_template = loader.get_template('frontend/pdf_book_list.html')
     return HttpResponse(html_template.render(context,request))
 

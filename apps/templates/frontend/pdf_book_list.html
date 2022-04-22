@@ -38,10 +38,18 @@
       </svg>
    </div>
    <div class="container">
-      <div class="row">
+      <div class="row" id="div1">
          <div class="col-md-8 text-start mb-5 mt-5">
          <h3 class="text-white z-index-1 position-relative">All Download PDF</h3>
-          <p class="text-white opacity-8 mb-0">Huge collection of  most popular Ahadis Books in PDF download</p>
+          {{book_list.category}}
+          {% if category == 'dua' %}
+          <p class="text-white opacity-10 mb-0">Allah her pukarne wale ki Dua qubool karta hai (Surah 2, Ayat 186). Aur jab Dua ke alfaz Quran and ahadees se ho to uske mayar ka Kya hi kehna. Is link mein 2 pdf files hai Jo aap download bhi kar sakte hai.</p>
+          <p class="text-white opacity-10 mb-0">1. Quran mein Jo duae aai hai  wo Translation ke sath hai </p>
+            <p class="text-white opacity-10 mb-0">2. Rasoolullah (SAW) ki Duae  translation ke sath</p>
+         {% else %}
+         <p class="text-white opacity-8 mb-0">Huge collection of  most popular Ahadis Books in PDF download</p>
+
+         {% endif %}
          </div>
       </div>
       <div class="row">
@@ -95,4 +103,21 @@
 </section>
 {% endblock content%}
 
-{% block javascripts %}{% endblock javascripts %}
+{% block javascripts %}
+
+<script>
+// $("#div1").animate({ scrollTop: $('#div1').prop("scrollHeight")}, 1000);
+var hash = '#div1';
+$('html, body').animate({
+      
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+      
+   // $("html,body").scrollTop(105);
+</script>
+
+{% endblock javascripts %}
