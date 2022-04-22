@@ -38,7 +38,7 @@
       </svg>
    </div>
    <div class="container">
-      <div class="row" id="div1">
+      <div class="row" id="pdf">
          <div class="col-md-8 text-start mb-5 mt-5">
          <h3 class="text-white z-index-1 position-relative">All Download PDF</h3>
           {{book_list.category}}
@@ -106,8 +106,7 @@
 {% block javascripts %}
 
 <script>
-// $("#div1").animate({ scrollTop: $('#div1').prop("scrollHeight")}, 1000);
-var hash = '#div1';
+var hash = '#pdf';
 $('html, body').animate({
       
         scrollTop: $(hash).offset().top
